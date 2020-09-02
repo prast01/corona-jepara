@@ -199,13 +199,85 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section section-counter pt-3 mb-5">
+        <div class="site-section first-section my-3 py-2">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-12 text-center" data-aos="fade">
+                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Ayo ! Lindungi Diri Dari</span>
+                        <h2 class="site-section-heading text-uppercase text-center font-secondary">COVID-19</h2>
+                    </div>
+                </div>
+                <div class="row border-responsive">
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
+                        <div class="text-center">
+                            <img src="assets/img/pic_batuk.png" alt="" width="120px">
+                            <p>Terapkan etika batuk atau bersin (dengan menutup mulut dan hidung), dan jangan meludah sembarangan</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center">
+                            <img src="assets/img/hp_bersih.png" alt="" width="120px">
+                            <p>Bersihkan benda yang sering disentuh</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center">
+                            <img src="assets/img/masker.png" alt="" width="120px">
+                            <p>Gunakan masker jika Anda sakit dan segera periksakan diri ke fasilitas kesehatan terdekat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-responsive mt-3">
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
+                        <div class="text-center">
+                            <img src="assets/img/cuci_tangan.png" alt="" width="120px">
+                            <p>Cuci tangan dengan sabun</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center">
+                            <img src="assets/img/ngucek.png" alt="" width="120px">
+                            <p>Hindari menyentuh mata, hidung, dan mulut dengan tangan yang belum dicuci</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center">
+                            <img src="assets/img/olahraga.png" alt="" width="120px">
+                            <p>Konsumsi makanan bergizi dan berolahraga</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="site-half">
+            <div class="img-bg-1" style="background-image: url('assets/img/covid.png');" data-aos="fade"></div>
+            <div class="container">
+                <div class="row no-gutters align-items-stretch">
+                    <div class="col-lg-5 ml-lg-auto py-5">
+                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Bagaimana Gejala</span>
+                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">COVID-19</h2>
+                        <p>Orang yang terinfeksi memiliki gejala seperti demam, batuk, dan kesulitan bernafas. Gejala dapat berkembang menjadi pneumonia berat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="site-section section-counter mt-2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
                         <h2 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus COVID-19 di Jepara</h2>
-                        <p class="mb-5"><b>Update Terakhir : </b><?= tgl_ind($updated_at); ?> | <b>Sumber : </b>Dinas Kesehatan Kabupaten Jepara</p>
-
+                        <p class="mb-0">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -5px;">
+                                <path d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM16.5 22.5H13.5V13.5H16.5V22.5ZM16.5 10.5H13.5V7.5H16.5V10.5Z" fill="#FFA51F" />
+                            </svg>
+                            <b>Update Terakhir : </b><?= tgl_ind($updated_at); ?>
+                            <br>
+                            <b>Sumber : </b>Dinas Kesehatan Kabupaten Jepara
+                        </p>
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-2">
 
@@ -364,70 +436,6 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section first-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-12 text-center" data-aos="fade">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Ayo ! Lindungi Diri Dari</span>
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">COVID-19</h2>
-                    </div>
-                </div>
-                <div class="row border-responsive">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
-                        <div class="text-center">
-                            <img src="assets/img/pic_batuk.png" alt="" width="120px">
-                            <p>Terapkan etika batuk atau bersin (dengan menutup mulut dan hidung), dan jangan meludah sembarangan</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-center">
-                            <img src="assets/img/hp_bersih.png" alt="" width="120px">
-                            <p>Bersihkan benda yang sering disentuh</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-center">
-                            <img src="assets/img/masker.png" alt="" width="120px">
-                            <p>Gunakan masker jika Anda sakit dan segera periksakan diri ke fasilitas kesehatan terdekat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row border-responsive mt-3">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
-                        <div class="text-center">
-                            <img src="assets/img/cuci_tangan.png" alt="" width="120px">
-                            <p>Cuci tangan dengan sabun</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-center">
-                            <img src="assets/img/ngucek.png" alt="" width="120px">
-                            <p>Hindari menyentuh mata, hidung, dan mulut dengan tangan yang belum dicuci</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-center">
-                            <img src="assets/img/olahraga.png" alt="" width="120px">
-                            <p>Konsumsi makanan bergizi dan berolahraga</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="site-half">
-            <div class="img-bg-1" style="background-image: url('assets/img/covid.png');" data-aos="fade"></div>
-            <div class="container">
-                <div class="row no-gutters align-items-stretch">
-                    <div class="col-lg-5 ml-lg-auto py-5">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Bagaimana Gejala</span>
-                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">COVID-19</h2>
-                        <p>Orang yang terinfeksi memiliki gejala seperti demam, batuk, dan kesulitan bernafas. Gejala dapat berkembang menjadi pneumonia berat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <footer class="site-footer bg-dark">
             <div class="container">

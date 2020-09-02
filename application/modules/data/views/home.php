@@ -199,7 +199,14 @@ function tgl_ind($date)
                         <div class="card shadow">
                             <div class="card-body">
                                 <h2 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus COVID-19 di Jepara</h2>
-                                <p class="mb-0"><b>Update Terakhir : </b><?= tgl_ind($updated_at); ?> | <b>Sumber : </b>Dinas Kesehatan Kabupaten Jepara</p>
+                                <p class="mb-0">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -5px;">
+                                        <path d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM16.5 22.5H13.5V13.5H16.5V22.5ZM16.5 10.5H13.5V7.5H16.5V10.5Z" fill="#FFA51F" />
+                                    </svg>
+                                    <b>Update Terakhir : </b><?= tgl_ind($updated_at); ?>
+                                    <br>
+                                    <b>Sumber : </b>Dinas Kesehatan Kabupaten Jepara
+                                </p>
                             </div>
                         </div>
                     </div>
