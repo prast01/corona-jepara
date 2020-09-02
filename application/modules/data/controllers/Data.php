@@ -28,6 +28,22 @@ class Data extends MY_Controller
     $data['kelurahan'] = $model->getApi3($kode);
     $this->load->view('kecamatan', $data);
   }
+
+  public function chart_harian()
+  {
+    $model = $this->M_data;
+    $data = $model->getChartHarian();
+
+    echo $data;
+  }
+
+  public function chart_gender()
+  {
+    $model = $this->M_data;
+    $data = $model->getChartGender();
+
+    echo $data;
+  }
 }
 
 /* End of file Controllername.php */

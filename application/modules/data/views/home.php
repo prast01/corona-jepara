@@ -50,6 +50,8 @@ function tgl_ind($date)
     <link rel="shortcut icon" href="<?= site_url("../"); ?>assets/img/jepara.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="<?= site_url("../"); ?>assets/js/echarts.min.js"></script>
+
     <!-- MY CSS -->
     <style>
         .list-header-red {
@@ -107,6 +109,10 @@ function tgl_ind($date)
 
         .rounded-8 {
             border-radius: 8px;
+        }
+
+        .rounded-10 {
+            border-radius: 10px;
         }
 
         .gradient-banner::before {
@@ -372,7 +378,7 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section section-counter mb-5 py-2">
+        <div class="site-section section-counter mb-2 py-2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
@@ -413,6 +419,167 @@ function tgl_ind($date)
 
                         <div class="text-center d-flex justify-content-center">
                             <span class="text-danger">Scroll untuk melihat data Kecamatan lain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafik grafik -->
+        <div class="site-section section-counter mb-3 py-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-3 font-secondary text-uppercase font-weight-bold text-center">Grafik Akumulasi dan Harian</h2>
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="btn btn-outline-danger rounded-10 mx-1 my-1 active" id="pills-harian-sum" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Grafik Akumulasi</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="btn btn-outline-danger rounded-10 mx-1 my-1" id="pills-harian" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Grafik Harian</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-harian-sum">
+                                <div class="row mb-3">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-covid-sum" style="width:90%; height:400px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-sembuh-sum" style="width:90%; height:400px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-meninggal-sum" style="width:90%; height:400px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-probable-sum" style="width:90%; height:300px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-suspek-sum" style="width:90%; height:300px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-harian">
+                                <div class="row mb-3">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-covid" style="width:90%; height:400px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-sembuh" style="width:90%; height:400px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-meninggal" style="width:90%; height:400px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-probable" style="width:90%; height:300px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                                        <div class="rounded-10 shadow bg-white">
+                                            <div class="row">
+                                                <div class="col-md-12 mx-1 my-1">
+                                                    <div id="chart-harian-suspek" style="width:90%; height:300px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-section section-counter mb-2 pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-5 font-secondary text-uppercase font-weight-bold text-center">Grafik Berdasarkan Gender</h2>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-lg">
+                                <div class="rounded-10 shadow bg-white">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="chart-sex-covid" style="width:100%; height:400px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-lg">
+                                <div class="rounded-10 shadow bg-white">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="chart-sex-probable" style="width:100%; height:400px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-lg">
+                                <div class="rounded-10 shadow bg-white">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="chart-sex-suspek" style="width:100%; height:400px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -491,6 +658,7 @@ function tgl_ind($date)
     <script src="<?= site_url("../"); ?>assets/js/aos.js"></script>
 
     <script src="<?= site_url("../"); ?>assets/js/main.js"></script>
+    <script src="<?= site_url("../"); ?>assets/js/data.js"></script>
 
 
 </body>

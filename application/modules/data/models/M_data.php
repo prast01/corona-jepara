@@ -33,6 +33,25 @@ class M_data extends CI_Model
 
         return $data;
     }
+
+
+    public function getChartHarian()
+    {
+        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_harian";
+        $data = file_get_contents($url);
+        // $data = json_decode($result, true);
+
+        return $data;
+    }
+
+    public function getChartGender()
+    {
+        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_gender";
+        $data = file_get_contents($url);
+        // $data = json_decode($result, true);
+
+        return $data;
+    }
 }
 
 /* End of file M_data.php */
