@@ -387,18 +387,26 @@ function tgl_ind($date)
                             <table class="table table-hovered table-bordered table-sm">
                                 <thead>
                                     <tr class="table-light">
-                                        <th>Kecamatan</th>
-                                        <th>Suspek</th>
-                                        <th>Probable</th>
-                                        <th>Konfirmasi</th>
-                                        <th>(+) Sembuh</th>
-                                        <th>Aksi</th>
+                                        <th class="align-middle">Kecamatan</th>
+                                        <th>
+                                            Suspek <br> <small class="text-indigo">Dirawat + Isolasi</small>
+                                        </th>
+                                        <th>
+                                            Probable <br> <small class="text-success">Dirawat + Isolasi</small>
+                                        </th>
+                                        <th>
+                                            Konfirmasi <br> <small class="text-danger">Dirawat + Isolasi</small>
+                                        </th>
+                                        <th>
+                                            Konfirmasi <br> <small class="text-pink">Sembuh</small>
+                                        </th>
+                                        <th class="align-middle">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($kecamatan as $key) : ?>
                                         <tr>
-                                            <td><?= $key['nama_kecamatan']; ?></td>
+                                            <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
                                             <td><?= $key['suspek_dirawat']; ?></td>
                                             <td><?= $key['probable_dirawat']; ?></td>
                                             <td><?= $key['konfirmasi_dirawat']; ?></td>
