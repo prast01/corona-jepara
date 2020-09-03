@@ -273,11 +273,11 @@ function tgl_ind($date)
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="list-group-item list-group-last text-center counter">
+                                        <!-- <li class="list-group-item list-group-last text-center counter">
                                             <p class="font-14" style="margin-bottom: 0;">Total Kasus Luar Jepara</p>
                                             <h4 class="font-counter2 fc-red number pb-0" data-number="<?= $konfirmasi['luar']['total']; ?>">0</h4>
                                             <i class="fa fa-angle-double-up fc-red"></i> <span class="fc-red font-13 number" data-number="<?= $konfirmasi['luar']['baru']; ?>">0</span>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
