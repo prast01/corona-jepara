@@ -865,7 +865,7 @@
                 type: "pie",
                 radius: "55%",
                 center: ["50%", "50%"],
-                color: ["#e60000", "#ff9999"],
+                color: ["#b30000", "#ff4d4d"],
                 data: covid,
                 label: {
                   formatter: "{d}%",
@@ -969,7 +969,7 @@
                 type: "pie",
                 radius: "55%",
                 center: ["50%", "50%"],
-                color: ["#00ff00", "#99ff99"],
+                color: ["#009933", "#00e64d"],
                 data: suspek,
                 label: {
                   formatter: "{d}%",
