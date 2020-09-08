@@ -80,13 +80,11 @@
           chart_harian_covid_sum.setOption({
             title: {
               text: "Terkonfirmasi\nDirawat + Dirujuk",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -149,13 +147,11 @@
           chart_harian_sembuh_sum.setOption({
             title: {
               text: "Terkonfirmasi\nSembuh",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -218,13 +214,11 @@
           chart_harian_meninggal_sum.setOption({
             title: {
               text: "Terkonfirmasi\nMeninggal",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -287,13 +281,11 @@
           chart_harian_suspek_sum.setOption({
             title: {
               text: "Suspek",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -356,13 +348,11 @@
           chart_harian_probable_sum.setOption({
             title: {
               text: "Probable",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -413,7 +403,7 @@
               {
                 name: "probable",
                 type: "bar",
-                color: ["#70db70"],
+                color: ["#ded712"],
                 data: probable_sum,
                 markPoint: {
                   data: [{ type: "max", name: "probable" }],
@@ -425,13 +415,11 @@
           chart_harian_covid.setOption({
             title: {
               text: "Terkonfirmasi\nDirawat + Dirujuk",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -494,13 +482,11 @@
           chart_harian_sembuh.setOption({
             title: {
               text: "Terkonfirmasi\nSembuh",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -563,13 +549,11 @@
           chart_harian_meninggal.setOption({
             title: {
               text: "Terkonfirmasi\nMeninggal",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -632,13 +616,11 @@
           chart_harian_suspek.setOption({
             title: {
               text: "Suspek",
-              subtext: "\n",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -700,14 +682,12 @@
 
           chart_harian_probable.setOption({
             title: {
-              text: "Probable",
-              subtext: "\n",
+              text: "Probabel",
               textAlign: "left",
-              padding: [25, 15, 30, 25],
-              itemGap: 5,
+              itemGap: 2,
             },
             grid: {
-              top: "20%",
+              top: "30%",
             },
             tooltip: {
               trigger: "axis",
@@ -758,7 +738,7 @@
               {
                 name: "probable",
                 type: "bar",
-                color: ["#70db70"],
+                color: ["#ded712"],
                 data: probable,
                 markPoint: {
                   data: [{ type: "max", name: "probable" }],
