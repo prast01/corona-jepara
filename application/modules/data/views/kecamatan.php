@@ -122,7 +122,7 @@ function tgl_ind($date)
         }
 
         .table-kabkot {
-            max-height: 500px;
+            max-height: 550px;
             overflow: auto;
         }
     </style>
@@ -225,18 +225,25 @@ function tgl_ind($date)
                             <table class="table table-hovered table-bordered table-sm">
                                 <thead>
                                     <tr>
-                                        <th class="align-middle">Kelurahan</th>
-                                        <th>
-                                            Suspek <br> <small class="text-indigo">Dirawat + Isolasi</small>
+                                        <th class="text-left">Kelurahan</th>
+                                        <th class="text-right" style="color: #00a6ff;">Terkonfirmasi</th>
+                                        <th class="text-danger text-right">
+                                            Konfirmasi <br> <small>Dirawat + Isolasi</small>
                                         </th>
-                                        <th>
-                                            Probable <br> <small class="text-success">Dirawat + Isolasi</small>
+                                        <th class="text-primary text-right">
+                                            Sembuh
                                         </th>
-                                        <th>
-                                            Konfirmasi <br> <small class="text-danger">Dirawat + Isolasi</small>
+                                        <th class="text-right">
+                                            Meninggal
                                         </th>
-                                        <th>
-                                            Konfirmasi <br> <small class="text-pink">Sembuh</small>
+                                        <th class="text-right" style="color: #ae00ff;">
+                                            Suspek
+                                        </th>
+                                        <th class="text-right" style="color: #ffaa00;">
+                                            Probable
+                                        </th>
+                                        <th class="text-right">
+                                            Suspek Discarded
                                         </th>
                                     </tr>
                                 </thead>
@@ -244,10 +251,13 @@ function tgl_ind($date)
                                     <?php foreach ($kelurahan as $key) : ?>
                                         <tr>
                                             <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
-                                            <td><?= $key['suspek_dirawat']; ?></td>
-                                            <td><?= $key['probable_dirawat']; ?></td>
-                                            <td><?= $key['konfirmasi_dirawat']; ?></td>
-                                            <td><?= $key['konfirmasi_sembuh']; ?></td>
+                                            <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
+                                            <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
+                                            <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
+                                            <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
+                                            <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
+                                            <td class="text-right"><?= $key['probable_dirawat']; ?></td>
+                                            <td class="text-right"><?= $key['suspek_discard']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

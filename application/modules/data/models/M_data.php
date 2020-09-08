@@ -52,6 +52,16 @@ class M_data extends CI_Model
 
         return $data;
     }
+
+
+    public function getFaskes()
+    {
+        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_faskes";
+        $result = file_get_contents($url);
+        $data = json_decode($result, true);
+
+        return $data;
+    }
 }
 
 /* End of file M_data.php */

@@ -974,5 +974,12 @@
         }, 500);
       });
     }
+
+    // let list_kecamatan = document.getElementById("chart-sex-covid");
+    // $(window).on("resize", function () {
+    //   setTimeout(function () {
+    //     list_kecamatan.resize();
+    //   }, 500);
+    // });
   });
 })(jQuery);

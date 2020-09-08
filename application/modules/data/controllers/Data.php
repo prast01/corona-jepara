@@ -18,6 +18,7 @@ class Data extends MY_Controller
     $model = $this->M_data;
     $data = $model->getApi();
     $data['kecamatan'] = $model->getApi2();
+    $data['faskes'] = $model->getFaskes();
     $this->load->view('home', $data);
   }
 
