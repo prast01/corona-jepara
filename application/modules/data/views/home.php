@@ -139,7 +139,7 @@ function tgl_ind($date)
         }
 
 
-        .card {
+        .cards {
             box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             height: 300px;
@@ -205,6 +205,16 @@ function tgl_ind($date)
         .rounded-15 {
             border-radius: 15px;
         }
+
+        .success {
+            border-color: #4CAF50;
+            color: green;
+        }
+
+        .success:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
     </style>
 </head>
 
@@ -267,7 +277,7 @@ function tgl_ind($date)
 
         <div class="slant-1"></div>
 
-        <div class="site-section first-section pb-3 mb-5">
+        <div class="site-section first-section pb-1 mb-5">
             <div class="container gradient-banner">
                 <div class="row mb-2">
                     <div class="col-12 text-center">
@@ -540,58 +550,56 @@ function tgl_ind($date)
                                     foreach ($faskes as $key => $val) :
                                         $jml = count($val['telp']);
                                     ?>
-                                        <div class="col-lg-4 mb-3">
-                                            <div class="card shadow">
-                                                <div class="card-bodi">
-                                                    <table border="0" width="100%">
-                                                        <tr>
-                                                            <td width="10%" class="table-rs"><span class="fa fa-hospital-o" style="color: green"></span></td>
-                                                            <td class="table-rs" colspan="2"><b><?= $val['nama_faskes']; ?></b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10%"></td>
-                                                            <td class="table-rs2" colspan="2"><?= $val['alamat']; ?></td>
-                                                        </tr>
-                                                    </table>
+                                        <div class="col-lg-4 col-12 mb-3">
+                                            <div class="card bg-light border-danger" style="height: 400px;">
+                                                <div class="card-header">
+                                                    <h5 class="card-title mb-0"><?= $val['nama_faskes']; ?></h5>
                                                 </div>
-                                                <div class="card-bodi2">
-                                                    <table border="0" width="100%">
-                                                        <tr>
-                                                            <td width="10%"></td>
-                                                            <td class="table-rs2" colspan="2"><b>Informasi</b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10%"></td>
-                                                            <td width="60%" class="table-rs2">- Suspek Dirawat</td>
-                                                            <td width="30%" class="table-rs2">: <b><?= $val['suspek']; ?></b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10%"></td>
-                                                            <td width="60%" class="table-rs2">- Probable Dirawat</td>
-                                                            <td width="30%" class="table-rs2">: <b><?= $val['probable']; ?></b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10%"></td>
-                                                            <td width="60%" class="table-rs2">- Terkonfirmasi Dirawat</td>
-                                                            <td width="30%" class="table-rs2">: <b><?= $val['konfirmasi']; ?></b></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="card-foot">
-                                                    <a href="<?= $val['gmaps']; ?>" class="btn success rounded-15" target="_blank"><span class="fa fa-map-marker"></span> Lokasi RS</a>
-                                                    <!-- jika lebih dari 1 nomor -->
-                                                    <?php if ($jml > 1) { ?>
-                                                        <div class="dropdown">
-                                                            <button onclick="myFunction('<?= $val['id_faskes']; ?>')" class="btn btn-success rounded-15 dropbtn"><span class="fa fa-phone"></span> Daftar Nomor Telp</button>
-                                                            <div id="<?= $val['id_faskes']; ?>" class="dropdown-content">
-                                                                <?php foreach ($val['telp'] as $key2 => $val2) : ?>
-                                                                    <a href="tel:<?= $val2['l_telp']; ?>" target="_blank"><?= $val2['v_telp']; ?></a>
+                                                <div class="card-body p-3 text-justify">
+                                                    <div style="height: 70px;">
+                                                        <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <p class="mb-0">Informasi :</p>
+                                                        <table class="table table-borderless">
+                                                            <tbody>
+                                                                <?php foreach ($val['kasus'] as $key2 => $val2) : ?>
+                                                                    <tr>
+                                                                        <td class="py-0"><?= $val2['nama']; ?></td>
+                                                                        <td class="py-0" width="1%">:</td>
+                                                                        <td class="py-0" width="30%"><?= $val2['kasus']; ?></td>
+                                                                    </tr>
                                                                 <?php endforeach; ?>
-                                                            </div>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
+                                                                <i class="fa fa-map-marker"></i> Lokasi
+                                                            </a>
                                                         </div>
-                                                    <?php } else { ?>
-                                                        <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success rounded-15"><span class="fa fa-phone"></span> <?= $val['telp'][0]['v_telp']; ?></a>
-                                                    <?php } ?>
+                                                        <div class="col-7">
+                                                            <?php if ($jml > 1) { ?>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="fa fa-phone"></i> Daftar Telepon
+                                                                    </button>
+                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                        <?php foreach ($val['telp'] as $key3 => $val3) : ?>
+                                                                            <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
+                                                                        <?php endforeach; ?>
+                                                                    </div>
+                                                                </div>
+                                                            <?php } else { ?>
+                                                                <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                                    <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
+                                                                </a>
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

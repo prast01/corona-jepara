@@ -203,6 +203,140 @@ function tgl_ind($date)
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
+                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Ayo ! Kenali Istilah Dalam</span>
+                        <h2 class="site-section-heading text-uppercase text-center font-secondary">COVID-19</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h4 class="mb-0 text-danger">
+                                            Apa itu Kasus Terkonfirmasi COVID-19?
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</p>
+                                        <p class="mb-0"><span class="text-danger">Jenis</span> kasus konfirmasi dibagi menjadi 2 :</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>Kasus konfirmasi dengan gejala (simptomatik)</li>
+                                            <li>Kasus konfirmasi tanpa gejala (asimptomatik)</li>
+                                        </ol>
+                                        <p class="mb-0"><span class="text-danger">Status</span> kasus konfirmasi dibagi menjadi 4 :</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>
+                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Dirawat</span></p>
+                                                <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang sedang dirawat di Fasyankes (<span class="text-danger">dalam wilayah</span> dan <span class="text-danger">luar wilayah</span>).</p>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Isolasi</span></p>
+                                                <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang sedang menjalani <span class="text-danger">isolasi</span>.</p>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Sembuh</span></p>
+                                                <ul class="mb-0" style="list-style: circle;">
+                                                    <li><span class="text-danger">Kasus konfirmasi tanpa gejala (asimptomatik)</span> yang tidak dilakukan pemeriksaan follow up RT-PCR dengan <span class="text-danger">ditambah 10 hari</span> isolasi mandiri sejak pengambilan specimen diagnosis konfirmasi</li>
+                                                    <li><span class="text-danger">Kasus konfirmasi dengan gejala (simptomatik)</span> yang tidak dilakukan pemeriksaan follow up RT-PCR <span class="text-danger">dihitung 10 hari</span> sejak tanggal onset dengan <span class="text-danger">ditambah minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan</li>
+                                                    <li><span class="text-danger">Kasus konfirmasi dengan gejala (simptomatik)</span> yang mendapatkan hasil pemeriksaan follow up <span class="text-danger">RT-PCR 1 kali negatif</span>, dengan ditambah <span class="text-danger">minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Meninggal</span></p>
+                                                <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang <span class="text-danger">telah dinyatakan meninggal dunia</span>.</p>
+                                            </li>
+                                        </ol>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h4 class="mb-0 text-danger">
+                                            Apa itu Kasus Probable?
+                                        </h4>
+                                    </button>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Kasus suspek dengan ISPA Berat/ARDS/meninggal ditambah dengan gambaran klinis yang <span class="text-danger">meyakinkan</span> COVID-19 DAN <span class="text-danger">belum ada</span> hasil pemeriksaan laboratorium RT-PCR.</p>
+                                        <p class="mb-0"><span class="text-danger">Status</span> kasus probable dibagi menjadi 4, yaitu :</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>
+                                                <p class="mb-0">Probable <span class="text-danger">dirawat</span></p>
+                                                <p class="mb-0">Kasus Probable COVID-19 yang sedang <span class="text-danger">dirawat di Fasyankes</span> (<span class="text-danger">Dalam Daerah</span> dan <span class="text-danger">Luar Daerah</span>).</p>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">Probable <span class="text-danger">Isolasi</span></p>
+                                                <p class="mb-0">Kasus Probable COVID-19 yang sedang menjalankan <span class="text-danger">isolasi mandiri</span>.</p>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">Probable <span class="text-danger">Sembuh</span></p>
+                                                <ul class="mb-0" style="list-style: circle;">
+                                                    <li><span class="text-danger">Kasus probable COVID-19</span> yang tidak dilakukan pemeriksaan follow up RT-PCR dihitung <span class="text-danger">10 hari</span> sejak tanggal onset dengan <span class="text-danger">ditambah minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan</li>
+                                                    <li><span class="text-danger">Kasus probable COVID-19</span> yang mendapatkan hasil pemeriksaan follow up <span class="text-danger">RT-PCR 1 kali negatif</span>, dengan ditambah <span class="text-danger">minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan.</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p class="mb-0">Probable <span class="text-danger">Meninggal</span></p>
+                                                <p class="mb-0">Kasus Suspek COVID-19 dengan ISPA Berat/ARDS (Acute Respiratoy Distress Syndrome) dengan gambaran klinis yang meyakinkan COVID-19 <span class="text-danger">DAN belum ada hasil</span> pemeriksaan laboratorium RT-PCR yang telah dinyatakan <span class="text-danger">meninggal dunia</span>.</p>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <h4 class="mb-0 text-danger">
+                                            Apa itu Kasus Suspek?
+                                        </h4>
+                                    </button>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang memiliki salah satu dari kriteria berikut :</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>Orang dengan <span class="text-danger">Infeksi Saluran Pernafasan Akut (ISPA)</span> dan pada <span class="text-danger">14 hari terakhir</span> sebelum timbul gejala memiliki riwayat perjalanan atau tinggal di negara/wilayah Indonesia yang melaporkan transmisi lokal.</li>
+                                            <li>Orang dengan salah satu gejala/tanda ISPA dan pada 14 hari terakhir sebelum timbul gejala memiliki <span class="text-danger">riwayat kontak</span> dengan kasus <span class="text-danger">konfirmasi/probable COVID-19</span>.</li>
+                                            <li>Orang dengan ISPA berat/pneumonia berat yang <span class="text-danger">membutuhkan perawatan</span> di rumah sakit dan <span class="text-danger">tidak ada</span> penyebab lain berdasarkan gambaran klinis yang meyakinkan.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <h4 class="mb-0 text-danger">
+                                            Apa itu Discarded?
+                                        </h4>
+                                    </button>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang memiliki salah satu dari kriteria berikut :</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>Kasus suspek dengan hasil pemeriksaan <span class="text-danger">RT-PCR 2 kali negatif</span> selama 2 hari berturut-turut dengan selang waktu >24 jam, atau</li>
+                                            <li>Seseorang dengan status kontak erat yang telah menyelesaikan masa karantina (<span class="text-danger">selama 14 hari</span>).</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section first-section my-3 py-2">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-12 text-center" data-aos="fade">
                         <span class="caption d-block mb-2 font-secondary font-weight-bold">Ayo ! Lindungi Diri Dari</span>
                         <h2 class="site-section-heading text-uppercase text-center font-secondary">COVID-19</h2>
                     </div>
