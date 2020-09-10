@@ -168,9 +168,14 @@
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">SATUAN TUGAS PENANGANAN</span>
-                        <h2 class="text-uppercase text-center font-secondary">COVID-19</h2>
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">KABUPATEN JEPARA</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <span class="caption d-block mb-2 font-secondary font-weight-bold">SATUAN TUGAS PENANGANAN</span>
+                                <h2 class="text-uppercase text-center font-secondary text-danger">COVID-19</h2>
+                                <h2 class="site-section-heading text-uppercase text-center font-secondary">KABUPATEN JEPARA</h2>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -191,15 +191,20 @@ function tgl_ind($date)
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">SATUAN TUGAS PENANGANAN</span>
-                        <h2 class="text-uppercase text-center font-secondary">COVID-19</h2>
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">KABUPATEN JEPARA</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <span class="caption d-block mb-2 font-secondary font-weight-bold">SATUAN TUGAS PENANGANAN</span>
+                                <h2 class="text-uppercase text-center font-secondary text-danger">COVID-19</h2>
+                                <h2 class="site-section-heading text-uppercase text-center font-secondary">KABUPATEN JEPARA</h2>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="site-section first-section my-3 py-2">
+        <div class="site-section first-section my-3 py-3">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
@@ -221,13 +226,27 @@ function tgl_ind($date)
 
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body text-justify">
-                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</p>
+                                        <p class="mb-0">Seseorang yang dinyatakan <span class="text-danger">positif terinfeksi virus COVID-19</span> yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</p>
                                         <p class="mb-0"><span class="text-danger">Jenis</span> kasus konfirmasi dibagi menjadi 2 :</p>
                                         <ol class="mb-0" style="list-style: lower-alpha;">
                                             <li>Kasus konfirmasi dengan gejala (simptomatik)</li>
                                             <li>Kasus konfirmasi tanpa gejala (asimptomatik)</li>
                                         </ol>
-                                        <p class="mb-0"><span class="text-danger">Status</span> kasus konfirmasi dibagi menjadi 4 :</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFive">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                        <h4 class="mb-0 text-danger">
+                                            Apa saja status perawatan pada Kasus Terkonfirmasi COVID-19?
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 dibagi menjadi 4 status perawatan, yaitu:</p>
                                         <ol class="mb-0" style="list-style: lower-alpha;">
                                             <li>
                                                 <p class="mb-0">Terkonfirmasi <span class="text-danger">Dirawat</span></p>
@@ -333,7 +352,20 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section first-section my-3 py-2">
+        <div class="site-half">
+            <div class="img-bg-1" style="background-image: url('assets/img/covid.png');" data-aos="fade"></div>
+            <div class="container">
+                <div class="row no-gutters align-items-stretch">
+                    <div class="col-lg-5 ml-lg-auto py-5">
+                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Bagaimana Gejala</span>
+                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">COVID-19</h2>
+                        <p>Orang yang terinfeksi memiliki gejala seperti demam, batuk, dan kesulitan bernafas. Gejala dapat berkembang menjadi pneumonia berat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section first-section my-3 py-3">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
@@ -385,21 +417,8 @@ function tgl_ind($date)
         </div>
 
 
-        <div class="site-half">
-            <div class="img-bg-1" style="background-image: url('assets/img/covid.png');" data-aos="fade"></div>
-            <div class="container">
-                <div class="row no-gutters align-items-stretch">
-                    <div class="col-lg-5 ml-lg-auto py-5">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Bagaimana Gejala</span>
-                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">COVID-19</h2>
-                        <p>Orang yang terinfeksi memiliki gejala seperti demam, batuk, dan kesulitan bernafas. Gejala dapat berkembang menjadi pneumonia berat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-
-        <div class="site-section section-counter mt-2">
+        <div class="site-section section-counter mt-1 pt-3">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
