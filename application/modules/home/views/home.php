@@ -120,6 +120,61 @@ function tgl_ind($date)
             height: 200%;
             background-image: linear-gradient(344.09deg, #D62255 0%, #FF4D4A 100%);
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .table-rs {
+            font-size: 12pt;
+            text-align: justify;
+        }
+
+        .table-rs2 {
+            font-size: 10pt;
+            text-align: justify;
+        }
+
+        .rounded-15 {
+            border-radius: 15px;
+        }
+
+        .success {
+            border-color: #4CAF50;
+            color: green;
+        }
+
+        .success:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
     </style>
 </head>
 
@@ -132,7 +187,32 @@ function tgl_ind($date)
         </div>
     </div> -->
 
-    <div class="site-wrap">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="25px">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="#definisi">Definisi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="#rs_rujukan">RS Rujukan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="#data">Data</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="site-wrap mt-5">
 
 
 
@@ -146,10 +226,9 @@ function tgl_ind($date)
         </div> <!-- .site-mobile-menu -->
 
 
-        <div class="site-navbar-wrap js-site-navbar bg-white">
+        <!-- <div class="site-navbar-wrap js-site-navbar bg-white fixed-top">
 
             <div class="container">
-                <!-- <div class="site-navbar bg-light"> -->
                 <div class="site-navbar gradient-banner">
                     <div class="row align-items-center">
                         <div class="col-6">
@@ -157,9 +236,6 @@ function tgl_ind($date)
                                 <div class="col-1">
                                     <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="30px">
                                 </div>
-                                <!-- <div class="col-11">
-                                    <h2 class="mb-0 site-logo"><a href="<?= site_url("../"); ?>" class="font-weight-bold text-uppercase"><?= SITE_NAME; ?></a></h2>
-                                </div> -->
                             </div>
                         </div>
                         <div class="col-6">
@@ -169,6 +245,7 @@ function tgl_ind($date)
 
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                                         <li class="active"><a href="<?= site_url("../"); ?>">Dashboard</a></li>
+                                        <li><a href="#definisi">Data</a></li>
                                         <li><a href="<?= site_url("../data"); ?>">Data</a></li>
                                         <li><a href="<?= site_url("../kontak"); ?>">Kontak</a></li>
                                     </ul>
@@ -178,7 +255,7 @@ function tgl_ind($date)
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="slant-1"></div>
 
@@ -204,8 +281,9 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section first-section my-3 py-3">
-            <div class="container">
+        <!-- DEFINISI -->
+        <div id="definisi" class="site-section first-section my-2 py-2">
+            <div class="container pt-5">
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
                         <span class="caption d-block mb-2 font-secondary font-weight-bold">Ayo ! Kenali Istilah Dalam</span>
@@ -217,17 +295,52 @@ function tgl_ind($date)
                         <div class="accordion" id="accordionExample">
                             <div class="card">
                                 <div class="card-header" id="headingOne">
-                                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <h4 class="mb-0 text-danger">
-                                            Apa itu Kasus Terkonfirmasi COVID-19?
+                                            Kasus Suspek
                                         </h4>
                                     </button>
                                 </div>
 
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body text-justify">
-                                        <p class="mb-0">Seseorang yang dinyatakan <span class="text-danger">positif terinfeksi virus COVID-19</span> yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</p>
-                                        <p class="mb-0"><span class="text-danger">Jenis</span> kasus konfirmasi dibagi menjadi 2 :</p>
+                                        <p class="mb-0">Seseorang yang memiliki salah satu dari kriteria berikut :</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>Orang dengan Infeksi Saluran Pernafasan Akut (ISPA)* DAN pada 14 hari terakhir sebelum timbul gejala memiliki riwayat perjalanan atau tinggal di negara/wilayah Indonesia yang melaporkan transmisi lokal**.</li>
+                                            <li>Orang dengan salah satu gejala/tanda ISPA* DAN pada 14 hari terakhir sebelum timbul gejala memiliki riwayat kontak dengan kasus konfirmasi/probable COVID-19.</li>
+                                            <li>Orang dengan ISPA berat/pneumonia berat*** yang membutuhkan perawatan di rumah sakit DAN tidak ada penyebab lain berdasarkan gambaran klinis yang meyakinkan.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <h4 class="mb-0 text-danger">
+                                            Kasus Probable
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Kasus suspek dengan ISPA Berat/ARDS***/meninggal dengan gambaran klinis yang meyakinkan COVID-19 DAN belum ada hasil pemeriksaan laboratorium RT-PCR.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <h4 class="mb-0 text-danger">
+                                            Kasus Konfirmasi
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</p>
+                                        <p class="mb-0">Kasus konfirmasi dibagi menjadi 2 :</p>
                                         <ol class="mb-0" style="list-style: lower-alpha;">
                                             <li>Kasus konfirmasi dengan gejala (simptomatik)</li>
                                             <li>Kasus konfirmasi tanpa gejala (asimptomatik)</li>
@@ -236,113 +349,254 @@ function tgl_ind($date)
                                 </div>
                             </div>
                             <div class="card">
+                                <div class="card-header" id="headingFour">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        <h4 class="mb-0 text-danger">
+                                            Kontak Erat
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19. Riwayat kontak yang dimaksud antara lain:</p>
+                                        <ol class="mb-0" style="list-style: lower-alpha;">
+                                            <li>Kontak tatap muka/berdekatan dengan kasus probable atau kasus konfirmasi dalam radius 1 meter dan dalam jangka waktu 15 menit atau lebih</li>
+                                            <li>Sentuhan fisik langsung dengan kasus probable atau konfirmasi (seperti bersalaman, berpegangan tangan, dan lain-lain)</li>
+                                            <li>Orang yang memberikan perawatan langsung terhadap kasus probable atau konfirmasi tanpa menggunakan APD yang standar</li>
+                                            <li>Situasi lainnya yang mengindikasi adanya kontak berdasarkan penilaian risiko lokal yang ditetapkan oleh tim penyelidikan epidemiologi setempat.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
                                 <div class="card-header" id="headingFive">
                                     <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                                         <h4 class="mb-0 text-danger">
-                                            Apa saja status perawatan pada Kasus Terkonfirmasi COVID-19?
+                                            Discarded
                                         </h4>
                                     </button>
                                 </div>
 
                                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                                     <div class="card-body text-justify">
-                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 dibagi menjadi 4 status perawatan, yaitu:</p>
+                                        <p class="mb-0">Seseorang yang memiliki salah satu dari kriteria berikut :</p>
                                         <ol class="mb-0" style="list-style: lower-alpha;">
-                                            <li>
-                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Dirawat</span></p>
-                                                <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang sedang dirawat di Fasyankes (<span class="text-danger">dalam wilayah</span> dan <span class="text-danger">luar wilayah</span>).</p>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Isolasi</span></p>
-                                                <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang sedang menjalani <span class="text-danger">isolasi</span>.</p>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Sembuh</span></p>
-                                                <ul class="mb-0" style="list-style: circle;">
-                                                    <li><span class="text-danger">Kasus konfirmasi tanpa gejala (asimptomatik)</span> yang tidak dilakukan pemeriksaan follow up RT-PCR dengan <span class="text-danger">ditambah 10 hari</span> isolasi mandiri sejak pengambilan specimen diagnosis konfirmasi</li>
-                                                    <li><span class="text-danger">Kasus konfirmasi dengan gejala (simptomatik)</span> yang tidak dilakukan pemeriksaan follow up RT-PCR <span class="text-danger">dihitung 10 hari</span> sejak tanggal onset dengan <span class="text-danger">ditambah minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan</li>
-                                                    <li><span class="text-danger">Kasus konfirmasi dengan gejala (simptomatik)</span> yang mendapatkan hasil pemeriksaan follow up <span class="text-danger">RT-PCR 1 kali negatif</span>, dengan ditambah <span class="text-danger">minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">Terkonfirmasi <span class="text-danger">Meninggal</span></p>
-                                                <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang <span class="text-danger">telah dinyatakan meninggal dunia</span>.</p>
-                                            </li>
+                                            <li>Kasus suspek dengan hasil pemeriksaan RT-PCR 2 kali negatif selama 2 hari berturut-turut dengan selang waktu >24 jam, atau</li>
+                                            <li>Seseorang dengan status kontak erat yang telah menyelesaikan masa karantina selama 14 hari).</li>
                                         </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingSix">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                        <h4 class="mb-0 text-danger">
+                                            Suspek Dirawat
+                                        </h4>
+                                    </button>
+                                </div>
 
+                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Kasus Suspek COVID-19 yang sedang dalam perawatan di fasilitas pelayanan kesehatan (di Kabupaten Jepara dan luar Kab. Jepara)</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="card-header" id="headingSeven">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
                                         <h4 class="mb-0 text-danger">
-                                            Apa itu Kasus Probable?
+                                            Suspek Isolasi
                                         </h4>
                                     </button>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+
+                                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
                                     <div class="card-body text-justify">
-                                        <p class="mb-0">Kasus suspek dengan ISPA Berat/ARDS/meninggal ditambah dengan gambaran klinis yang <span class="text-danger">meyakinkan</span> COVID-19 DAN <span class="text-danger">belum ada</span> hasil pemeriksaan laboratorium RT-PCR.</p>
-                                        <p class="mb-0"><span class="text-danger">Status</span> kasus probable dibagi menjadi 4, yaitu :</p>
+                                        <p class="mb-0">Kasus Suspek COVID-19 yang sedang dalam masa isolasi</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingEight">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                                        <h4 class="mb-0 text-danger">
+                                            Suspek Discarded
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Kasus Suspek COVID-19 dengan hasil pemeriksaan RT-PCR 2 kali negatif selama 2 hari berturut-turut dengan selang waktu >24 jam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingNine">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                        <h4 class="mb-0 text-danger">
+                                            Probable Dirawat
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Kasus Suspek COVID-19 dengan ISPA Berat/ARDS (Acute Respiratoy Distress Syndrome) dengan gambaran klinis yang meyakinkan COVID-19 DAN belum ada hasil pemeriksaan laboratorium RT-PCR DAN sedang dirawat di Fasyankes (dalam ataupun luar daerah). ATAU</p>
+                                        <p class="mb-0">Kasus Probable COVID-19 yang sedang dirawat di Fasyankes.(dalam ataupun luar daerah).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+                                        <h4 class="mb-0 text-danger">
+                                            Probable Isolasi
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Kasus Suspek COVID-19 dengan ISPA Berat/ARDS (Acute Respiratoy Distress Syndrome) dengan gambaran klinis yang meyakinkan COVID-19 DAN belum ada hasil pemeriksaan laboratorium RT-PCR yang sedang menjalankan isolasi mandiri. ATAU</p>
+                                        <p class="mb-0">Kasus Probable COVID-19 yang sedang menjalankan isolasi mandiri</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingEleven">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                                        <h4 class="mb-0 text-danger">
+                                            Probable Sembuh
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
                                         <ol class="mb-0" style="list-style: lower-alpha;">
-                                            <li>
-                                                <p class="mb-0">Probable <span class="text-danger">dirawat</span></p>
-                                                <p class="mb-0">Kasus Probable COVID-19 yang sedang <span class="text-danger">dirawat di Fasyankes</span> (<span class="text-danger">Dalam Daerah</span> dan <span class="text-danger">Luar Daerah</span>).</p>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">Probable <span class="text-danger">Isolasi</span></p>
-                                                <p class="mb-0">Kasus Probable COVID-19 yang sedang menjalankan <span class="text-danger">isolasi mandiri</span>.</p>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">Probable <span class="text-danger">Sembuh</span></p>
-                                                <ul class="mb-0" style="list-style: circle;">
-                                                    <li><span class="text-danger">Kasus probable COVID-19</span> yang tidak dilakukan pemeriksaan follow up RT-PCR dihitung <span class="text-danger">10 hari</span> sejak tanggal onset dengan <span class="text-danger">ditambah minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan</li>
-                                                    <li><span class="text-danger">Kasus probable COVID-19</span> yang mendapatkan hasil pemeriksaan follow up <span class="text-danger">RT-PCR 1 kali negatif</span>, dengan ditambah <span class="text-danger">minimal 3 hari</span> setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan.</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">Probable <span class="text-danger">Meninggal</span></p>
-                                                <p class="mb-0">Kasus Suspek COVID-19 dengan ISPA Berat/ARDS (Acute Respiratoy Distress Syndrome) dengan gambaran klinis yang meyakinkan COVID-19 <span class="text-danger">DAN belum ada hasil</span> pemeriksaan laboratorium RT-PCR yang telah dinyatakan <span class="text-danger">meninggal dunia</span>.</p>
-                                            </li>
+                                            <li>Kasus probable COVID-19 yang tidak dilakukan pemeriksaan follow up RT-PCR dihitung 10 hari sejak tanggal onset dengan ditambah minimal 3 hari setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan;</li>
+                                            <li>Kasus probable COVID-19 yang mendapatkan hasil pemeriksaan follow up RT-PCR 1 kali negatif, dengan ditambah minimal 3 hari setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan.</li>
                                         </ol>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <div class="card-header" id="headingTwelve">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="true" aria-controls="collapseTwelve">
                                         <h4 class="mb-0 text-danger">
-                                            Apa itu Kasus Suspek?
+                                            Probable Meninggal
                                         </h4>
                                     </button>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+
+                                <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
                                     <div class="card-body text-justify">
-                                        <p class="mb-0">Seseorang yang memiliki salah satu dari kriteria berikut :</p>
-                                        <ol class="mb-0" style="list-style: lower-alpha;">
-                                            <li>Orang dengan <span class="text-danger">Infeksi Saluran Pernafasan Akut (ISPA)</span> dan pada <span class="text-danger">14 hari terakhir</span> sebelum timbul gejala memiliki riwayat perjalanan atau tinggal di negara/wilayah Indonesia yang melaporkan transmisi lokal.</li>
-                                            <li>Orang dengan salah satu gejala/tanda ISPA dan pada 14 hari terakhir sebelum timbul gejala memiliki <span class="text-danger">riwayat kontak</span> dengan kasus <span class="text-danger">konfirmasi/probable COVID-19</span>.</li>
-                                            <li>Orang dengan ISPA berat/pneumonia berat yang <span class="text-danger">membutuhkan perawatan</span> di rumah sakit dan <span class="text-danger">tidak ada</span> penyebab lain berdasarkan gambaran klinis yang meyakinkan.</li>
+                                        <p class="mb-0">Kasus Suspek COVID-19 dengan ISPA Berat/ARDS (Acute Respiratoy Distress Syndrome) dengan gambaran klinis yang meyakinkan COVID-19 DAN belum ada hasil pemeriksaan laboratorium RT-PCR yang telah dinyatakan meninggal dunia. ATAU</p>
+                                        <p class="mb-0">Kasus probable COVID-19 yang meninggal dunia.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFourteen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">
+                                        <h4 class="mb-0 text-danger">
+                                            Terkonfirmasi Dirawat
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang sedang dirawat di Fasyankes (dalam wilayah dan luar wilayah)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFiveteen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="true" aria-controls="collapseFiveteen">
+                                        <h4 class="mb-0 text-danger">
+                                            Terkonfirmasi Isolasi
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang sedang menjalani isolasi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingSixteen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="true" aria-controls="collapseSixteen">
+                                        <h4 class="mb-0 text-danger">
+                                            Terkonfirmasi Sembuh
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <ol class="mb-0" style="list-style: circle;">
+                                            <li>Kasus konfirmasi tanpa gejala (asimptomatik) yang tidak dilakukan pemeriksaan follow up RT-PCR dengan ditambah 10 hari isolasi mandiri sejak pengambilan specimen diagnosis konfirmasi;</li>
+                                            <li>Kasus konfirmasi dengan gejala (simptomatik) yang tidak dilakukan pemeriksaan follow up RT-PCR dihitung 10 hari sejak tanggal onset dengan ditambah minimal 3 hari setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan;</li>
+                                            <li>Kasus konfirmasi dengan gejala (simptomatik) yang mendapatkan hasil pemeriksaan follow up RT-PCR 1 kali negatif, dengan ditambah minimal 3 hari setelah tidak lagi menunjukkan gejala demam dan gangguan pernapasan.</li>
                                         </ol>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-header" id="headingFour">
-                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <div class="card-header" id="headingSeventeen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeventeen" aria-expanded="true" aria-controls="collapseSeventeen">
                                         <h4 class="mb-0 text-danger">
-                                            Apa itu Discarded?
+                                            Terkonfirmasi Meninggal
                                         </h4>
                                     </button>
                                 </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+
+                                <div id="collapseSeventeen" class="collapse" aria-labelledby="headingSeventeen" data-parent="#accordionExample">
                                     <div class="card-body text-justify">
-                                        <p class="mb-0">Seseorang yang memiliki salah satu dari kriteria berikut :</p>
-                                        <ol class="mb-0" style="list-style: lower-alpha;">
-                                            <li>Kasus suspek dengan hasil pemeriksaan <span class="text-danger">RT-PCR 2 kali negatif</span> selama 2 hari berturut-turut dengan selang waktu >24 jam, atau</li>
-                                            <li>Seseorang dengan status kontak erat yang telah menyelesaikan masa karantina (<span class="text-danger">selama 14 hari</span>).</li>
+                                        <p class="mb-0">Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR yang telah dinyatakan meninggal dunia.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingEighteen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEighteen" aria-expanded="true" aria-controls="collapseEighteen">
+                                        <h4 class="mb-0 text-danger">
+                                            Kontak Erat Karantina
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseEighteen" class="collapse" aria-labelledby="headingEighteen" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19 dan orang tersebut sedang menjalan karantina.</p>
+                                        <p class="mb-0">Riwayat kontak yang dimaksud antara lain :</p>
+                                        <ol class="mb-0" style="list-style: circle;">
+                                            <li>Kontak tatap muka/berdekatan dengan kasus probable atau kasus konfirmasi dalam radius 1 meter dan dalam jangka waktu 15 menit atau lebih;</li>
+                                            <li>Sentuhan fisik langsung dengan kasus probable atau konfirmasi (seperti bersalaman, berpegangan tangan, dan lain-lain);</li>
+                                            <li>Orang yang memberikan perawatan langsung terhadap kasus probable atau konfirmasi tanpa menggunakan APD yang standar;</li>
+                                            <li>Situasi lainnya yang mengindikasi adanya kontak berdasarkan penilaian risiko lokal yang ditetapkan oleh tim penyelidikan epidemiologi setempat.</li>
                                         </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingNineteen">
+                                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseNineteen" aria-expanded="true" aria-controls="collapseNineteen">
+                                        <h4 class="mb-0 text-danger">
+                                            Kontak Erat Discarded
+                                        </h4>
+                                    </button>
+                                </div>
+
+                                <div id="collapseNineteen" class="collapse" aria-labelledby="headingNineteen" data-parent="#accordionExample">
+                                    <div class="card-body text-justify">
+                                        <p class="mb-0">Seseorang dengan status kontak erat yang telah menyelesaikan masa karantina selama 14 hari.</p>
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +606,7 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-half">
+        <!-- <div class="site-half">
             <div class="img-bg-1" style="background-image: url('assets/img/covid.png');" data-aos="fade"></div>
             <div class="container">
                 <div class="row no-gutters align-items-stretch">
@@ -414,12 +668,88 @@ function tgl_ind($date)
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <!-- DATA -->
+        <!-- RUMAH SAKIT -->
+        <div id="rs_rujukan" class="site-section section-counter mb-2 py-2">
+            <div class="container-fluid pt-5">
+                <div class="row">
+                    <div class="col-lg-12 ml-auto mb-5 text-center">
+                        <h4 class="mb-4 font-secondary text-uppercase font-weight-bold">Rumah Sakit Rujukan <span class="text-danger">COVID-19</span> Jepara</h4>
+
+                        <div class="row">
+                            <?php
+                            foreach ($faskes as $key => $val) :
+                                $jml = count($val['telp']);
+                            ?>
+                                <div class="col-lg-4 col-12 mb-3">
+                                    <div class="card bg-light border-danger">
+                                        <div class="card-header">
+                                            <h5 class="card-title mb-0"><?= $val['nama_faskes']; ?></h5>
+                                        </div>
+                                        <div class="card-body p-3 text-justify">
+                                            <div style="height: 70px;">
+                                                <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <p class="mb-0">Informasi :</p>
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        <?php foreach ($val['kasus'] as $key2 => $val2) : ?>
+                                                            <tr>
+                                                                <td class="py-0"><?= $val2['nama']; ?></td>
+                                                                <td class="py-0" width="1%">:</td>
+                                                                <td class="py-0" width="30%"><?= $val2['kasus']; ?></td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
+                                                        <i class="fa fa-map-marker"></i> Lokasi
+                                                    </a>
+                                                </div>
+                                                <div class="col-7">
+                                                    <?php if ($jml > 1) { ?>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="fa fa-phone"></i> Daftar Telepon
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <?php foreach ($val['telp'] as $key3 => $val3) : ?>
+                                                                    <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
+                                                                <?php endforeach; ?>
+                                                            </div>
+                                                        </div>
+                                                    <?php } else { ?>
+                                                        <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                            <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
+                                                        </a>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            endforeach;
+                            ?>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-
-
-        <div class="site-section section-counter mt-1 pt-3">
-            <div class="container">
+        <!-- REKAP HARIAN -->
+        <div id="data" class="site-section section-counter mt-1 py-3">
+            <div class="container pt-5">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
                         <h2 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus COVID-19 di Jepara</h2>
@@ -451,7 +781,7 @@ function tgl_ind($date)
                                                         $konfirmasi_saat_ini = ($konfirmasi['dirawat']['total'] + $konfirmasi['isolasi']['total']) / $konfirmasi['total'] * 100;
                                                         ?>
                                                         <span class="badge badge-danger font-13"><?= number_format($konfirmasi_saat_ini, 2, ',', '.'); ?> % </span><br>
-                                                        <i class="fa fa-angle-double-up fc-red"></i> <span class="fc-red font-13 number" data-number="<?= $konfirmasi['dirawat']['baru'] + $konfirmasi['isolasi']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-red"></i> <span class="fc-red font-13 number" data-number="<?= $konfirmasi['dirawat']['baru'] + $konfirmasi['isolasi']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Saat Ini</h6>
                                                     </div>
                                                 </li>
@@ -462,7 +792,7 @@ function tgl_ind($date)
                                                         $konfirmasi_sembuh = $konfirmasi['sembuh']['total'] / $konfirmasi['total'] * 100;
                                                         ?>
                                                         <span class="badge badge-success font-13"><?= number_format($konfirmasi_sembuh, 2, ',', '.'); ?> %</span><br>
-                                                        <i class="fa fa-angle-double-up fc-green"></i> <span class="fc-green font-13 number" data-number="<?= $konfirmasi['sembuh']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-green"></i> <span class="fc-green font-13 number" data-number="<?= $konfirmasi['sembuh']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Sembuh</h6>
                                                     </div>
                                                 </li>
@@ -474,7 +804,7 @@ function tgl_ind($date)
                                                         ?>
                                                         <span class="d-inline d-lg-none d-md-none text-white"><br /></span>
                                                         <span class="badge badge-default bg-black text-white font-13"><?= number_format($konfirmasi_meninggal, 2, ',', '.'); ?> %</span><br>
-                                                        <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $konfirmasi['meninggal']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $konfirmasi['meninggal']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Meninggal</h6>
                                                     </div>
                                                 </li>
@@ -507,7 +837,7 @@ function tgl_ind($date)
                                                         $probable_saat_ini = ($probable['dirawat']['total'] + $probable['isolasi']['total']) / $probable['total'] * 100;
                                                         ?>
                                                         <span class="badge badge-warning font-13"><?= number_format($probable_saat_ini, 2, ',', '.'); ?> % </span><br>
-                                                        <i class="fa fa-angle-double-up fc-yellow"></i> <span class="fc-yellow font-13 number" data-number="<?= $probable['dirawat']['baru'] + $probable['isolasi']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-yellow"></i> <span class="fc-yellow font-13 number" data-number="<?= $probable['dirawat']['baru'] + $probable['isolasi']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Saat Ini</h6>
                                                     </div>
                                                 </li>
@@ -518,7 +848,7 @@ function tgl_ind($date)
                                                         $probable_sembuh = $probable['sembuh']['total'] / $probable['total'] * 100;
                                                         ?>
                                                         <span class="badge badge-success font-13"><?= number_format($probable_sembuh, 2, ',', '.'); ?> %</span><br>
-                                                        <i class="fa fa-angle-double-up fc-green"></i> <span class="fc-green font-13 number" data-number="<?= $probable['sembuh']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-green"></i> <span class="fc-green font-13 number" data-number="<?= $probable['sembuh']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Sembuh</h6>
                                                     </div>
                                                 </li>
@@ -530,7 +860,7 @@ function tgl_ind($date)
                                                         ?>
                                                         <span class="d-inline d-lg-none d-md-none text-white"><br /></span>
                                                         <span class="badge badge-default bg-black text-white font-13"><?= number_format($probable_meninggal, 2, ',', '.'); ?> %</span><br>
-                                                        <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $probable['meninggal']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $probable['meninggal']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Meninggal</h6>
                                                     </div>
                                                 </li>
@@ -558,7 +888,7 @@ function tgl_ind($date)
                                                         $suspek_saat_ini = ($suspek['dirawat']['total'] + $suspek['isolasi']['total']) / $suspek['total'] * 100;
                                                         ?>
                                                         <span class="badge badge-success font-13"><?= number_format($suspek_saat_ini, 2, ',', '.'); ?> %</span><br>
-                                                        <i class="fa fa-angle-double-up fc-green"></i> <span class="fc-green font-13 number" data-number="<?= $suspek['dirawat']['baru'] + $suspek['isolasi']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-green"></i> <span class="fc-green font-13 number" data-number="<?= $suspek['dirawat']['baru'] + $suspek['isolasi']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Saat ini</h6>
                                                     </div>
                                                 </li>
@@ -570,7 +900,7 @@ function tgl_ind($date)
                                                         ?>
                                                         <span class="d-inline d-lg-none d-md-none text-white"><br /></span>
                                                         <span class="badge badge-default bg-black text-white font-13"><?= number_format($suspek_discard, 2, ',', '.'); ?> %</span><br>
-                                                        <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $suspek['discard']['baru']; ?>">0</span>
+                                                        <!-- <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $suspek['discard']['baru']; ?>">0</span> -->
                                                         <h6 class="font-kasus font-14 pt-1">Discard</h6>
                                                     </div>
                                                 </li>
@@ -586,6 +916,116 @@ function tgl_ind($date)
                         <a href="<?= site_url("../data"); ?>" class="btn btn-outline-danger rounded-8 btn-lg">Lihat Selengkapnya</a>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="site-section section-counter mb-1 py-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 ml-auto mb-5 text-center">
+                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">COVID-19</span> Per Kecamatan</h4>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                <div class="rounded-10 shadow bg-white">
+                                    <div class="row">
+                                        <div class="col-md-12 mx-1 my-1">
+                                            <div class="table-responsive table-kabkot px-2">
+                                                <table class="table table-hovered table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" class="text-left">Kecamatan</th>
+                                                            <th rowspan="2" class="text-right" style="color: #00a6ff;">Terkonfirmasi Total</th>
+                                                            <th colspan="2" class="text-danger text-right">
+                                                                Konfirmasi
+                                                            </th>
+                                                            <th rowspan="2" class="text-primary text-right">
+                                                                Sembuh
+                                                            </th>
+                                                            <th rowspan="2" class="text-right">
+                                                                Meninggal
+                                                            </th>
+                                                            <th rowspan="2" class="text-right" style="color: #ae00ff;">
+                                                                Suspek
+                                                            </th>
+                                                            <th rowspan="2" class="text-right" style="color: #ffaa00;">
+                                                                Probable
+                                                            </th>
+                                                            <th rowspan="2" class="text-right">
+                                                                Suspek Discarded
+                                                            </th>
+                                                            <th rowspan="2" class="text-left">Detail</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-danger text-right">
+                                                                Dirawat
+                                                            </th>
+                                                            <th class="text-danger text-right">
+                                                                Isolasi
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $konfirmasi_total = 0;
+                                                        $konfirmasi_dirawat = 0;
+                                                        $konfirmasi_isolasi = 0;
+                                                        $konfirmasi_sembuh = 0;
+                                                        $konfirmasi_meninggal = 0;
+                                                        $suspek_dirawat = 0;
+                                                        $probable_dirawat = 0;
+                                                        $suspek_discard = 0;
+                                                        ?>
+                                                        <?php foreach ($kecamatan as $key) : ?>
+                                                            <?php
+                                                            $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
+                                                            $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
+                                                            $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
+                                                            $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
+                                                            $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
+                                                            $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'];
+                                                            $probable_dirawat = $probable_dirawat + $key['probable_dirawat'];
+                                                            $suspek_discard = $suspek_discard + $key['suspek_discard'];
+                                                            ?>
+                                                            <tr>
+                                                                <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
+                                                                <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
+                                                                <td class="text-right"><?= $key['probable_dirawat']; ?></td>
+                                                                <td class="text-right"><?= $key['suspek_discard']; ?></td>
+                                                                <td>
+                                                                    <a href="<?= site_url("../data/kecamatan/" . $key['kode']); ?>">Lihat</a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+
+                                                        <tr class="bg-primary">
+                                                            <td class="text-left">JUMLAH</td>
+                                                            <td class="text-right"><?= $konfirmasi_total; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
+                                                            <td class="text-right"><?= $suspek_dirawat; ?></td>
+                                                            <td class="text-right"><?= $probable_dirawat; ?></td>
+                                                            <td class="text-right"><?= $suspek_discard; ?></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 

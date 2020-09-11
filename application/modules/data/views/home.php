@@ -133,12 +133,6 @@ function tgl_ind($date)
             background-image: linear-gradient(344.09deg, #D62255 0%, #FF4D4A 100%);
         }
 
-        .table-kabkot {
-            max-height: 400px;
-            overflow: auto;
-        }
-
-
         .cards {
             box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
@@ -227,7 +221,26 @@ function tgl_ind($date)
         </div>
     </div> -->
 
-    <div class="site-wrap">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="25px">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="<?= site_url("../"); ?>">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="<?= site_url("../data"); ?>">Data</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="site-wrap mt-5">
 
 
 
@@ -241,10 +254,9 @@ function tgl_ind($date)
         </div> <!-- .site-mobile-menu -->
 
 
-        <div class="site-navbar-wrap js-site-navbar bg-white">
+        <!-- <div class="site-navbar-wrap js-site-navbar bg-white">
 
             <div class="container">
-                <!-- <div class="site-navbar bg-light"> -->
                 <div class="site-navbar gradient-banner">
                     <div class="row align-items-center">
                         <div class="col-6">
@@ -252,9 +264,6 @@ function tgl_ind($date)
                                 <div class="col-1">
                                     <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="30px">
                                 </div>
-                                <!-- <div class="col-11">
-                                    <h2 class="mb-0 site-logo"><a href="<?= site_url("../"); ?>" class="font-weight-bold text-uppercase"><?= SITE_NAME; ?></a></h2>
-                                </div> -->
                             </div>
                         </div>
                         <div class="col-6">
@@ -273,7 +282,7 @@ function tgl_ind($date)
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="slant-1"></div>
 
@@ -304,7 +313,7 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section section-counter pb-3" style="margin-top: -90px;">
+        <!-- <div class="site-section section-counter pb-3" style="margin-top: -90px;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
@@ -357,11 +366,6 @@ function tgl_ind($date)
                                                 </li>
                                             </ul>
                                         </li>
-                                        <!-- <li class="list-group-item list-group-last text-center counter">
-                                            <p class="font-14" style="margin-bottom: 0;">Total Kasus Luar Jepara</p>
-                                            <h4 class="font-counter2 fc-red number pb-0" data-number="<?= $konfirmasi['luar']['total']; ?>">0</h4>
-                                            <i class="fa fa-angle-double-up fc-red"></i> <span class="fc-red font-13 number" data-number="<?= $konfirmasi['luar']['baru']; ?>">0</span>
-                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -460,156 +464,190 @@ function tgl_ind($date)
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
+        <!-- RUMAH SAKIT -->
         <div class="site-section section-counter mb-2 py-2">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
-                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">COVID-19</span> Jepara</h4>
+                        <h4 class="mb-4 font-secondary text-uppercase font-weight-bold">Rumah Sakit Rujukan <span class="text-danger">COVID-19</span> Jepara</h4>
 
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kecamatan</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Rumah Sakit</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row mb-3">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                                        <div class="rounded-10 shadow bg-white">
-                                            <div class="row">
-                                                <div class="col-md-12 mx-1 my-1">
-                                                    <div class="table-responsive table-kabkot px-2">
-                                                        <table class="table table-hovered table-bordered table-sm">
-                                                            <thead>
-                                                                <tr class="table-light">
-                                                                    <th class="text-left">Kecamatan</th>
-                                                                    <th class="text-right" style="color: #00a6ff;">Terkonfirmasi</th>
-                                                                    <th class="text-danger text-right">
-                                                                        Konfirmasi <br> <small>Dirawat + Isolasi</small>
-                                                                    </th>
-                                                                    <th class="text-primary text-right">
-                                                                        Sembuh
-                                                                    </th>
-                                                                    <th class="text-right">
-                                                                        Meninggal
-                                                                    </th>
-                                                                    <th class="text-right" style="color: #ae00ff;">
-                                                                        Suspek
-                                                                    </th>
-                                                                    <th class="text-right" style="color: #ffaa00;">
-                                                                        Probable
-                                                                    </th>
-                                                                    <th class="text-right">
-                                                                        Suspek Discarded
-                                                                    </th>
-                                                                    <th class="align-middle">Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php foreach ($kecamatan as $key) : ?>
-                                                                    <tr>
-                                                                        <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
-                                                                        <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
-                                                                        <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
-                                                                        <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
-                                                                        <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
-                                                                        <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
-                                                                        <td class="text-right"><?= $key['probable_dirawat']; ?></td>
-                                                                        <td class="text-right"><?= $key['suspek_discard']; ?></td>
-                                                                        <td>
-                                                                            <a href="<?= site_url("../data/kecamatan/" . $key['kode']); ?>" class="btn btn-sm btn-primary rounded-8 text-white">Detail</a>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php endforeach; ?>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                        <div class="row">
+                            <?php
+                            foreach ($faskes as $key => $val) :
+                                $jml = count($val['telp']);
+                            ?>
+                                <div class="col-lg-4 col-12 mb-3">
+                                    <div class="card bg-light border-danger">
+                                        <div class="card-header">
+                                            <h5 class="card-title mb-0"><?= $val['nama_faskes']; ?></h5>
+                                        </div>
+                                        <div class="card-body p-3 text-justify">
+                                            <div style="height: 70px;">
+                                                <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
                                             </div>
-
-                                            <div class="row justify-content-center mr-lg-2 mr-sm-2 ml-lg-2 ml-sm-2">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 mb-3 mr-3 ml-3">
-
-                                                    <div class="text-center d-flex justify-content-center">
-                                                        <span class="text-danger">Scroll untuk melihat data Kecamatan lain</span>
-                                                    </div>
+                                            <div class="table-responsive">
+                                                <p class="mb-0">Informasi :</p>
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        <?php foreach ($val['kasus'] as $key2 => $val2) : ?>
+                                                            <tr>
+                                                                <td class="py-0"><?= $val2['nama']; ?></td>
+                                                                <td class="py-0" width="1%">:</td>
+                                                                <td class="py-0" width="30%"><?= $val2['kasus']; ?></td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
+                                                        <i class="fa fa-map-marker"></i> Lokasi
+                                                    </a>
+                                                </div>
+                                                <div class="col-7">
+                                                    <?php if ($jml > 1) { ?>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="fa fa-phone"></i> Daftar Telepon
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <?php foreach ($val['telp'] as $key3 => $val3) : ?>
+                                                                    <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
+                                                                <?php endforeach; ?>
+                                                            </div>
+                                                        </div>
+                                                    <?php } else { ?>
+                                                        <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                            <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
+                                                        </a>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row my-2">
-                                    <?php
-                                    foreach ($faskes as $key => $val) :
-                                        $jml = count($val['telp']);
-                                    ?>
-                                        <div class="col-lg-4 col-12 mb-3">
-                                            <div class="card bg-light border-danger" style="height: 400px;">
-                                                <div class="card-header">
-                                                    <h5 class="card-title mb-0"><?= $val['nama_faskes']; ?></h5>
-                                                </div>
-                                                <div class="card-body p-3 text-justify">
-                                                    <div style="height: 70px;">
-                                                        <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
-                                                    </div>
-                                                    <div class="table-responsive">
-                                                        <p class="mb-0">Informasi :</p>
-                                                        <table class="table table-borderless">
-                                                            <tbody>
-                                                                <?php foreach ($val['kasus'] as $key2 => $val2) : ?>
-                                                                    <tr>
-                                                                        <td class="py-0"><?= $val2['nama']; ?></td>
-                                                                        <td class="py-0" width="1%">:</td>
-                                                                        <td class="py-0" width="30%"><?= $val2['kasus']; ?></td>
-                                                                    </tr>
-                                                                <?php endforeach; ?>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <div class="row">
-                                                        <div class="col-5">
-                                                            <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
-                                                                <i class="fa fa-map-marker"></i> Lokasi
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <?php if ($jml > 1) { ?>
-                                                                <div class="dropdown">
-                                                                    <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="fa fa-phone"></i> Daftar Telepon
-                                                                    </button>
-                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                        <?php foreach ($val['telp'] as $key3 => $val3) : ?>
-                                                                            <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
-                                                                        <?php endforeach; ?>
-                                                                    </div>
-                                                                </div>
-                                                            <?php } else { ?>
-                                                                <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
-                                                                    <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
-                                                                </a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <?php
+                            endforeach;
+                            ?>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KECAMATAN -->
+
+        <div class="site-section section-counter mb-1 py-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 ml-auto mb-5 text-center">
+                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">COVID-19</span> Per Kecamatan</h4>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                <div class="rounded-10 shadow bg-white">
+                                    <div class="row">
+                                        <div class="col-md-12 mx-1 my-1">
+                                            <div class="table-responsive table-kabkot px-2">
+                                                <table class="table table-hovered table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" class="text-left">Kecamatan</th>
+                                                            <th rowspan="2" class="text-right" style="color: #00a6ff;">Terkonfirmasi Total</th>
+                                                            <th colspan="2" class="text-danger text-right">
+                                                                Konfirmasi
+                                                            </th>
+                                                            <th rowspan="2" class="text-primary text-right">
+                                                                Sembuh
+                                                            </th>
+                                                            <th rowspan="2" class="text-right">
+                                                                Meninggal
+                                                            </th>
+                                                            <th rowspan="2" class="text-right" style="color: #ae00ff;">
+                                                                Suspek
+                                                            </th>
+                                                            <th rowspan="2" class="text-right" style="color: #ffaa00;">
+                                                                Probable
+                                                            </th>
+                                                            <th rowspan="2" class="text-right">
+                                                                Suspek Discarded
+                                                            </th>
+                                                            <th rowspan="2" class="text-left">Detail</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-danger text-right">
+                                                                Dirawat
+                                                            </th>
+                                                            <th class="text-danger text-right">
+                                                                Isolasi
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $konfirmasi_total = 0;
+                                                        $konfirmasi_dirawat = 0;
+                                                        $konfirmasi_isolasi = 0;
+                                                        $konfirmasi_sembuh = 0;
+                                                        $konfirmasi_meninggal = 0;
+                                                        $suspek_dirawat = 0;
+                                                        $probable_dirawat = 0;
+                                                        $suspek_discard = 0;
+                                                        ?>
+                                                        <?php foreach ($kecamatan as $key) : ?>
+                                                            <?php
+                                                            $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
+                                                            $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
+                                                            $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
+                                                            $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
+                                                            $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
+                                                            $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'];
+                                                            $probable_dirawat = $probable_dirawat + $key['probable_dirawat'];
+                                                            $suspek_discard = $suspek_discard + $key['suspek_discard'];
+                                                            ?>
+                                                            <tr>
+                                                                <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
+                                                                <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
+                                                                <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
+                                                                <td class="text-right"><?= $key['probable_dirawat']; ?></td>
+                                                                <td class="text-right"><?= $key['suspek_discard']; ?></td>
+                                                                <td>
+                                                                    <a href="<?= site_url("../data/kecamatan/" . $key['kode']); ?>">Lihat</a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+
+                                                        <tr class="bg-primary">
+                                                            <td class="text-left">JUMLAH</td>
+                                                            <td class="text-right"><?= $konfirmasi_total; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
+                                                            <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
+                                                            <td class="text-right"><?= $suspek_dirawat; ?></td>
+                                                            <td class="text-right"><?= $probable_dirawat; ?></td>
+                                                            <td class="text-right"><?= $suspek_discard; ?></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    <?php
-                                    endforeach;
-                                    ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 

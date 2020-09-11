@@ -120,11 +120,6 @@ function tgl_ind($date)
             height: 200%;
             background-image: linear-gradient(344.09deg, #D62255 0%, #FF4D4A 100%);
         }
-
-        .table-kabkot {
-            max-height: 550px;
-            overflow: auto;
-        }
     </style>
 </head>
 
@@ -137,7 +132,26 @@ function tgl_ind($date)
         </div>
     </div> -->
 
-    <div class="site-wrap">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="25px">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="<?= site_url("../"); ?>">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="<?= site_url("../data"); ?>">Data</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="site-wrap mt-5">
 
 
 
@@ -151,10 +165,9 @@ function tgl_ind($date)
         </div> <!-- .site-mobile-menu -->
 
 
-        <div class="site-navbar-wrap js-site-navbar bg-white">
+        <!-- <div class="site-navbar-wrap js-site-navbar bg-white">
 
             <div class="container">
-                <!-- <div class="site-navbar bg-light"> -->
                 <div class="site-navbar gradient-banner">
                     <div class="row align-items-center">
                         <div class="col-6">
@@ -162,9 +175,6 @@ function tgl_ind($date)
                                 <div class="col-1">
                                     <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="30px">
                                 </div>
-                                <!-- <div class="col-11">
-                                    <h2 class="mb-0 site-logo"><a href="<?= site_url("../"); ?>" class="font-weight-bold text-uppercase"><?= SITE_NAME; ?></a></h2>
-                                </div> -->
                             </div>
                         </div>
                         <div class="col-6">
@@ -183,7 +193,7 @@ function tgl_ind($date)
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="slant-1"></div>
 
@@ -225,34 +235,63 @@ function tgl_ind($date)
                             <table class="table table-hovered table-bordered table-sm">
                                 <thead>
                                     <tr>
-                                        <th class="text-left">Kelurahan</th>
-                                        <th class="text-right" style="color: #00a6ff;">Terkonfirmasi</th>
-                                        <th class="text-danger text-right">
-                                            Konfirmasi <br> <small>Dirawat + Isolasi</small>
+                                        <th rowspan="2" class="text-left">Kelurahan</th>
+                                        <th rowspan="2" class="text-right" style="color: #00a6ff;">Terkonfirmasi Total</th>
+                                        <th colspan="2" class="text-danger text-right">
+                                            Konfirmasi
                                         </th>
-                                        <th class="text-primary text-right">
+                                        <th rowspan="2" class="text-primary text-right">
                                             Sembuh
                                         </th>
-                                        <th class="text-right">
+                                        <th rowspan="2" class="text-right">
                                             Meninggal
                                         </th>
-                                        <th class="text-right" style="color: #ae00ff;">
+                                        <th rowspan="2" class="text-right" style="color: #ae00ff;">
                                             Suspek
                                         </th>
-                                        <th class="text-right" style="color: #ffaa00;">
+                                        <th rowspan="2" class="text-right" style="color: #ffaa00;">
                                             Probable
                                         </th>
-                                        <th class="text-right">
+                                        <th rowspan="2" class="text-right">
                                             Suspek Discarded
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-danger text-right">
+                                            Dirawat
+                                        </th>
+                                        <th class="text-danger text-right">
+                                            Isolasi
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $konfirmasi_total = 0;
+                                    $konfirmasi_dirawat = 0;
+                                    $konfirmasi_isolasi = 0;
+                                    $konfirmasi_sembuh = 0;
+                                    $konfirmasi_meninggal = 0;
+                                    $suspek_dirawat = 0;
+                                    $probable_dirawat = 0;
+                                    $suspek_discard = 0;
+                                    ?>
                                     <?php foreach ($kelurahan as $key) : ?>
+                                        <?php
+                                        $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
+                                        $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
+                                        $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
+                                        $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
+                                        $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
+                                        $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'];
+                                        $probable_dirawat = $probable_dirawat + $key['probable_dirawat'];
+                                        $suspek_discard = $suspek_discard + $key['suspek_discard'];
+                                        ?>
                                         <tr>
                                             <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
                                             <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
                                             <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
+                                            <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
                                             <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
                                             <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
                                             <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
@@ -260,6 +299,17 @@ function tgl_ind($date)
                                             <td class="text-right"><?= $key['suspek_discard']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
+                                    <tr class="bg-primary">
+                                        <td class="text-left">JUMLAH</td>
+                                        <td class="text-right"><?= $konfirmasi_total; ?></td>
+                                        <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
+                                        <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
+                                        <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
+                                        <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
+                                        <td class="text-right"><?= $suspek_dirawat; ?></td>
+                                        <td class="text-right"><?= $probable_dirawat; ?></td>
+                                        <td class="text-right"><?= $suspek_discard; ?></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

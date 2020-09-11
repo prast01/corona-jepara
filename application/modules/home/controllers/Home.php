@@ -17,6 +17,8 @@ class Home extends MY_Controller
   {
     $model = $this->M_home;
     $data = $model->getApi();
+    $data['kecamatan'] = $model->getApi2();
+    $data['faskes'] = $model->getFaskes();
     $this->load->view('home', $data);
     // var_dump($data);
   }
