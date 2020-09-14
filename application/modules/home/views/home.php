@@ -50,6 +50,35 @@ function tgl_ind($date)
     <link rel="shortcut icon" href="<?= site_url("../"); ?>assets/img/jepara.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="<?= site_url("../"); ?>assets/js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Add smooth scrolling to all links
+            $(".nav-link").on('click', function(event) {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Store hash
+                    var hash = this.hash;
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function() {
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        // window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $('.navbar-nav li').click(function() {
+                $(this).addClass('active').siblings('li').removeClass('active');
+            });
+        });
+    </script>
+
+
     <!-- MY CSS -->
     <style>
         .list-header-red {
@@ -195,8 +224,8 @@ function tgl_ind($date)
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#">Dashboard</a>
+                    <li class="nav-item active">
+                        <a class="nav-link text-uppercase" href="#dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase" href="#definisi">Definisi</a>
@@ -259,7 +288,7 @@ function tgl_ind($date)
 
         <div class="slant-1"></div>
 
-        <div class="site-section first-section pb-3">
+        <div id="dashboard" class="site-section first-section pb-3">
             <div class="container gradient-banner">
                 <div class="row mb-2">
                     <div class="col-12 text-center">
@@ -683,15 +712,20 @@ function tgl_ind($date)
                             foreach ($faskes as $key => $val) :
                                 $jml = count($val['telp']);
                             ?>
+                                <?php if ($val['id_faskes'] == '99') : ?>
+                                    <div class="col-lg-4 hidden-sm"></div>
+                                <?php endif; ?>
                                 <div class="col-lg-4 col-12 mb-3">
                                     <div class="card bg-light border-danger">
                                         <div class="card-header">
                                             <h5 class="card-title mb-0"><?= $val['nama_faskes']; ?></h5>
                                         </div>
                                         <div class="card-body p-3 text-justify">
-                                            <div style="height: 70px;">
-                                                <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
-                                            </div>
+                                            <?php if ($val['alamat'] != 'x') : ?>
+                                                <div style="height: 70px;">
+                                                    <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
+                                                </div>
+                                            <?php endif; ?>
                                             <div class="table-responsive">
                                                 <p class="mb-0">Informasi :</p>
                                                 <table class="table table-borderless">
@@ -710,27 +744,31 @@ function tgl_ind($date)
                                         <div class="card-footer">
                                             <div class="row">
                                                 <div class="col-5">
-                                                    <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
-                                                        <i class="fa fa-map-marker"></i> Lokasi
-                                                    </a>
+                                                    <?php if ($val['gmaps'] != 'x') : ?>
+                                                        <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
+                                                            <i class="fa fa-map-marker"></i> Lokasi
+                                                        </a>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <div class="col-7">
-                                                    <?php if ($jml > 1) { ?>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="fa fa-phone"></i> Daftar Telepon
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <?php foreach ($val['telp'] as $key3 => $val3) : ?>
-                                                                    <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
-                                                                <?php endforeach; ?>
+                                                    <?php if ($val['telp'][0]['l_telp'] != 'x') : ?>
+                                                        <?php if ($jml > 1) { ?>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="fa fa-phone"></i> Daftar Telepon
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <?php foreach ($val['telp'] as $key3 => $val3) : ?>
+                                                                        <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
+                                                                    <?php endforeach; ?>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    <?php } else { ?>
-                                                        <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
-                                                            <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
-                                                        </a>
-                                                    <?php } ?>
+                                                        <?php } else { ?>
+                                                            <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                                <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
+                                                            </a>
+                                                        <?php } ?>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -752,7 +790,7 @@ function tgl_ind($date)
             <div class="container pt-5">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
-                        <h2 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus COVID-19 di Jepara</h2>
+                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">COVID-19</span> di Jepara</h4>
                         <p class="mb-0">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -5px;">
                                 <path d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM16.5 22.5H13.5V13.5H16.5V22.5ZM16.5 10.5H13.5V7.5H16.5V10.5Z" fill="#FFA51F" />
@@ -923,7 +961,7 @@ function tgl_ind($date)
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
-                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">COVID-19</span> Per Kecamatan</h4>
+                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus per Kecamatan</h4>
 
                         <div class="row mb-3">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
@@ -1062,9 +1100,9 @@ function tgl_ind($date)
                             </div>
                             <div class="col-md-12">
                                 <p>
-                                    <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                                    <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                                    <a href="#" class="p-2"><span class="icon-instagram"></span></a>
+                                    <a href="https://www.facebook.com/dinkeskabjepara" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                                    <a href="https://twitter.com/dinkeskabjepara" class="p-2"><span class="icon-twitter"></span></a>
+                                    <a href="https://www.instagram.com/dinkesjepara/" class="p-2"><span class="icon-instagram"></span></a>
 
                                 </p>
                             </div>
@@ -1089,7 +1127,6 @@ function tgl_ind($date)
         </footer>
     </div>
 
-    <script src="<?= site_url("../"); ?>assets/js/jquery-3.3.1.min.js"></script>
     <script src="<?= site_url("../"); ?>assets/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="<?= site_url("../"); ?>assets/js/jquery-ui.js"></script>
     <script src="<?= site_url("../"); ?>assets/js/popper.min.js"></script>
@@ -1102,7 +1139,6 @@ function tgl_ind($date)
     <script src="<?= site_url("../"); ?>assets/js/aos.js"></script>
 
     <script src="<?= site_url("../"); ?>assets/js/main.js"></script>
-
 
 </body>
 

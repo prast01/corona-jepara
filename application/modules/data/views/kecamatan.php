@@ -228,7 +228,8 @@ function tgl_ind($date)
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 mb-3">
-                        <a href="<?= site_url("../data"); ?>" class="btn btn-outline-warning rounded-8"><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <!-- <a href="<?= site_url("../data"); ?>" class="btn btn-outline-warning rounded-8"><i class="fa fa-arrow-left"></i> Kembali</a> -->
+                        <a href="javascript:history.back()" class="btn btn-outline-warning rounded-8"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
                     <div class="col-lg-12 ml-auto mb-5 text-center">
                         <div class="table-responsive table-kabkot px-3">
@@ -359,9 +360,9 @@ function tgl_ind($date)
                             </div>
                             <div class="col-md-12">
                                 <p>
-                                    <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                                    <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                                    <a href="#" class="p-2"><span class="icon-instagram"></span></a>
+                                    <a href="https://www.facebook.com/dinkeskabjepara" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                                    <a href="https://twitter.com/dinkeskabjepara" class="p-2"><span class="icon-twitter"></span></a>
+                                    <a href="https://www.instagram.com/dinkesjepara/" class="p-2"><span class="icon-instagram"></span></a>
 
                                 </p>
                             </div>

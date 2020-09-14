@@ -232,7 +232,7 @@ function tgl_ind($date)
                     <li class="nav-item">
                         <a class="nav-link text-uppercase" href="<?= site_url("../"); ?>">Dashboard</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link text-uppercase" href="<?= site_url("../data"); ?>">Data</a>
                     </li>
                 </ul>
@@ -467,8 +467,8 @@ function tgl_ind($date)
         </div> -->
 
         <!-- RUMAH SAKIT -->
-        <div class="site-section section-counter mb-2 py-2">
-            <div class="container-fluid">
+        <div id="rs_rujukan" class="site-section section-counter mb-2 py-2">
+            <div class="container-fluid pt-5">
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-5 text-center">
                         <h4 class="mb-4 font-secondary text-uppercase font-weight-bold">Rumah Sakit Rujukan <span class="text-danger">COVID-19</span> Jepara</h4>
@@ -478,15 +478,20 @@ function tgl_ind($date)
                             foreach ($faskes as $key => $val) :
                                 $jml = count($val['telp']);
                             ?>
+                                <?php if ($val['id_faskes'] == '99') : ?>
+                                    <div class="col-lg-4 hidden-sm"></div>
+                                <?php endif; ?>
                                 <div class="col-lg-4 col-12 mb-3">
                                     <div class="card bg-light border-danger">
                                         <div class="card-header">
                                             <h5 class="card-title mb-0"><?= $val['nama_faskes']; ?></h5>
                                         </div>
                                         <div class="card-body p-3 text-justify">
-                                            <div style="height: 70px;">
-                                                <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
-                                            </div>
+                                            <?php if ($val['alamat'] != 'x') : ?>
+                                                <div style="height: 70px;">
+                                                    <h6 class="card-subtitle mb-2 text-muted"><?= $val['alamat']; ?></h6>
+                                                </div>
+                                            <?php endif; ?>
                                             <div class="table-responsive">
                                                 <p class="mb-0">Informasi :</p>
                                                 <table class="table table-borderless">
@@ -505,27 +510,31 @@ function tgl_ind($date)
                                         <div class="card-footer">
                                             <div class="row">
                                                 <div class="col-5">
-                                                    <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
-                                                        <i class="fa fa-map-marker"></i> Lokasi
-                                                    </a>
+                                                    <?php if ($val['gmaps'] != 'x') : ?>
+                                                        <a href="<?= $val['gmaps']; ?>" target="_blank" class="btn btn-outline-success rounded-15 btn-sm">
+                                                            <i class="fa fa-map-marker"></i> Lokasi
+                                                        </a>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <div class="col-7">
-                                                    <?php if ($jml > 1) { ?>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="fa fa-phone"></i> Daftar Telepon
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <?php foreach ($val['telp'] as $key3 => $val3) : ?>
-                                                                    <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
-                                                                <?php endforeach; ?>
+                                                    <?php if ($val['telp'][0]['l_telp'] != 'x') : ?>
+                                                        <?php if ($jml > 1) { ?>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="fa fa-phone"></i> Daftar Telepon
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <?php foreach ($val['telp'] as $key3 => $val3) : ?>
+                                                                        <a class="dropdown-item" href="tel:<?= $val3['l_telp']; ?>"><?= $val3['v_telp']; ?></a>
+                                                                    <?php endforeach; ?>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    <?php } else { ?>
-                                                        <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
-                                                            <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
-                                                        </a>
-                                                    <?php } ?>
+                                                        <?php } else { ?>
+                                                            <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                                <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
+                                                            </a>
+                                                        <?php } ?>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -848,9 +857,9 @@ function tgl_ind($date)
                             </div>
                             <div class="col-md-12">
                                 <p>
-                                    <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                                    <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                                    <a href="#" class="p-2"><span class="icon-instagram"></span></a>
+                                    <a href="https://www.facebook.com/dinkeskabjepara" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                                    <a href="https://twitter.com/dinkeskabjepara" class="p-2"><span class="icon-twitter"></span></a>
+                                    <a href="https://www.instagram.com/dinkesjepara/" class="p-2"><span class="icon-instagram"></span></a>
 
                                 </p>
                             </div>
