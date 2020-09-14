@@ -22,11 +22,12 @@ class Data extends MY_Controller
     $this->load->view('home', $data);
   }
 
-  public function kecamatan($kode)
+  public function kecamatan($kode, $status)
   {
     $model = $this->M_data;
     $data = $model->getApi();
     $data['kelurahan'] = $model->getApi3($kode);
+    $data['status'] = $status;
     $this->load->view('kecamatan', $data);
   }
 
@@ -42,6 +43,14 @@ class Data extends MY_Controller
   {
     $model = $this->M_data;
     $data = $model->getChartGender();
+
+    echo $data;
+  }
+
+  public function chart_penyakit()
+  {
+    $model = $this->M_data;
+    $data = $model->getChartPenyakit();
 
     echo $data;
   }

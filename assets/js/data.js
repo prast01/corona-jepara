@@ -975,11 +975,94 @@
       });
     }
 
-    // let list_kecamatan = document.getElementById("chart-sex-covid");
-    // $(window).on("resize", function () {
-    //   setTimeout(function () {
-    //     list_kecamatan.resize();
-    //   }, 500);
-    // });
+    get_chart_penyakit();
+    function get_chart_penyakit() {
+      let chart_penyakit = echarts.init(
+        document.getElementById("chart-penyakit")
+      );
+      $.ajax({
+        type: "post",
+        url: site_url + "data/chart_penyakit",
+        cache: false,
+        async: true,
+        dataType: "JSON",
+        success: function (data, textStatus, jqXHR) {
+          let penyakit = [];
+          let jumlah = [];
+
+          $.each(data, function (index, val) {
+            penyakit.push(val.diag);
+            jumlah.push(val.jumlah);
+          });
+
+          chart_penyakit.setOption({
+            grid: {
+              top: "10%",
+            },
+            tooltip: {
+              trigger: "axis",
+            },
+            toolbox: {
+              show: false,
+              feature: {
+                dataView: { show: false, readOnly: false },
+                magicType: { show: false, type: ["line", "bar"] },
+                restore: { show: false },
+                saveAsImage: { show: true },
+              },
+            },
+            dataZoom: [
+              {
+                type: "inside",
+                start: 0,
+                end: 33,
+              },
+              {
+                start: 0,
+                end: 33,
+                handleIcon:
+                  "M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z",
+                handleSize: "80%",
+                handleStyle: {
+                  color: "red",
+                  shadowBlur: 3,
+                  shadowColor: "rgba(0, 0, 0, 0.6)",
+                  shadowOffsetX: 2,
+                  shadowOffsetY: 2,
+                },
+              },
+            ],
+            calculable: true,
+            xAxis: [
+              {
+                type: "category",
+                data: penyakit,
+              },
+            ],
+            yAxis: [
+              {
+                type: "value",
+              },
+            ],
+            series: [
+              {
+                name: "penyakit",
+                type: "bar",
+                color: ["#FF4D4A"],
+                data: jumlah,
+                markPoint: {
+                  data: [{ type: "max", name: "penyakit" }],
+                },
+              },
+            ],
+          });
+        },
+      });
+      $(window).on("resize", function () {
+        setTimeout(function () {
+          chart_penyakit.resize();
+        }, 200);
+      });
+    }
   });
 })(jQuery);

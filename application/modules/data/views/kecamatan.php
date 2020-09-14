@@ -208,7 +208,7 @@ function tgl_ind($date)
                     <div class="col-md-12 text-center" data-aos="fade">
                         <div class="card shadow">
                             <div class="card-body">
-                                <h2 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus Per Desa</h2>
+                                <h2 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus Per Kelurahan/Desa</h2>
                                 <p class="mb-0">
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -5px;">
                                         <path d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM16.5 22.5H13.5V13.5H16.5V22.5ZM16.5 10.5H13.5V7.5H16.5V10.5Z" fill="#FFA51F" />
@@ -232,97 +232,220 @@ function tgl_ind($date)
                         <a href="javascript:history.back()" class="btn btn-outline-warning rounded-8"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
                     <div class="col-lg-12 ml-auto mb-5 text-center">
-                        <div class="table-responsive table-kabkot px-3">
+                        <?php
+                        if ($status == 'konfirmasi') {
+                        ?>
+                            <div class="table-responsive table-kabkot px-3">
+                                <table class="table table-hovered table-bordered table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="3" class="text-left align-middle">Kelurahan/Desa</th>
+                                            <th colspan="5" class="text-danger text-center">
+                                                Terkonfirmasi
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="2" class="text-right align-middle" style="color: #00a6ff;">
+                                                Total
+                                            </th>
+                                            <th colspan="2" class="text-danger text-center">
+                                                Saat Ini
+                                            </th>
+                                            <th rowspan="2" class="text-primary text-right align-middle">
+                                                Sembuh
+                                            </th>
+                                            <th rowspan="2" class="text-right align-middle">
+                                                Meninggal
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-danger text-right">
+                                                Dirawat
+                                            </th>
+                                            <th class="text-danger text-right">
+                                                Isolasi
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $konfirmasi_total = 0;
+                                        $konfirmasi_dirawat = 0;
+                                        $konfirmasi_isolasi = 0;
+                                        $konfirmasi_sembuh = 0;
+                                        $konfirmasi_meninggal = 0;
+                                        $suspek_dirawat = 0;
+                                        $probable_dirawat = 0;
+                                        $suspek_discard = 0;
+                                        ?>
+                                        <?php foreach ($kelurahan as $key) : ?>
+                                            <?php
+                                            $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
+                                            $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
+                                            $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
+                                            $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
+                                            $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
+                                            $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'] + $key['suspek_isolasi'];
+                                            $probable_dirawat = $probable_dirawat + $key['probable_dirawat'] + $key['probable_isolasi'];
+                                            $suspek_discard = $suspek_discard + $key['suspek_discard'];
+                                            ?>
+                                            <tr>
+                                                <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
+                                                <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
+                                                <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
+                                                <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
+                                                <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
+                                                <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+
+                                        <tr class="bg-primary">
+                                            <td class="text-left">JUMLAH</td>
+                                            <td class="text-right"><?= $konfirmasi_total; ?></td>
+                                            <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
+                                            <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
+                                            <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
+                                            <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php
+                        } elseif ($status == 'probable') {
+                        ?>
                             <table class="table table-hovered table-bordered table-sm">
                                 <thead>
                                     <tr>
-                                        <th rowspan="2" class="text-left">Kelurahan</th>
-                                        <th rowspan="2" class="text-right" style="color: #00a6ff;">Terkonfirmasi Total</th>
-                                        <th colspan="2" class="text-danger text-right">
-                                            Konfirmasi
-                                        </th>
-                                        <th rowspan="2" class="text-primary text-right">
-                                            Sembuh
-                                        </th>
-                                        <th rowspan="2" class="text-right">
-                                            Meninggal
-                                        </th>
-                                        <th rowspan="2" class="text-right" style="color: #ae00ff;">
-                                            Suspek
-                                        </th>
-                                        <th rowspan="2" class="text-right" style="color: #ffaa00;">
-                                            Probable
-                                        </th>
-                                        <th rowspan="2" class="text-right">
-                                            Suspek Discarded
+                                        <th rowspan="3" class="text-left align-middle">Kelurahan/Desa</th>
+                                        <th colspan="5" class="text-warning text-center">
+                                            Probale
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th class="text-danger text-right">
+                                        <th rowspan="2" class="text-right align-middle" style="color: #00a6ff;">
+                                            Total
+                                        </th>
+                                        <th colspan="2" class="text-warning text-center">
+                                            Saat Ini
+                                        </th>
+                                        <th rowspan="2" class="text-primary text-right align-middle">
+                                            Sembuh
+                                        </th>
+                                        <th rowspan="2" class="text-right align-middle">
+                                            Meninggal
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-warning text-right">
                                             Dirawat
                                         </th>
-                                        <th class="text-danger text-right">
+                                        <th class="text-warning text-right">
                                             Isolasi
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $konfirmasi_total = 0;
-                                    $konfirmasi_dirawat = 0;
-                                    $konfirmasi_isolasi = 0;
-                                    $konfirmasi_sembuh = 0;
-                                    $konfirmasi_meninggal = 0;
-                                    $suspek_dirawat = 0;
+                                    $probable_total = 0;
                                     $probable_dirawat = 0;
+                                    $probable_isolasi = 0;
+                                    $probable_sembuh = 0;
+                                    $probable_meninggal = 0;
+                                    ?>
+                                    <?php foreach ($kelurahan as $key) : ?>
+                                        <?php
+                                        $probable_total = $probable_total + $key['probable_total'];
+                                        $probable_dirawat = $probable_dirawat + $key['probable_dirawat'];
+                                        $probable_isolasi = $probable_isolasi + $key['probable_isolasi'];
+                                        $probable_sembuh = $probable_sembuh + $key['probable_sembuh'];
+                                        $probable_meninggal = $probable_meninggal + $key['probable_meninggal'];
+                                        ?>
+                                        <tr>
+                                            <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
+                                            <td class="text-right"><?= $key['probable_total']; ?></td>
+                                            <td class="text-right"><?= $key['probable_dirawat']; ?></td>
+                                            <td class="text-right"><?= $key['probable_isolasi']; ?></td>
+                                            <td class="text-right"><?= $key['probable_sembuh']; ?></td>
+                                            <td class="text-right"><?= $key['probable_meninggal']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
+                                    <tr class="bg-primary">
+                                        <td class="text-left">JUMLAH</td>
+                                        <td class="text-right"><?= $probable_total; ?></td>
+                                        <td class="text-right"><?= $probable_dirawat; ?></td>
+                                        <td class="text-right"><?= $probable_isolasi; ?></td>
+                                        <td class="text-right"><?= $probable_sembuh; ?></td>
+                                        <td class="text-right"><?= $probable_meninggal; ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <?php
+                        } elseif ($status == 'suspek') {
+                        ?>
+                            <table class="table table-hovered table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="3" class="text-left align-middle">Kelurahan/Desa</th>
+                                        <th colspan="4" class="text-primary text-center">
+                                            Suspek
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" class="text-right align-middle" style="color: #00a6ff;">
+                                            Total
+                                        </th>
+                                        <th colspan="2" class="text-primary text-center">
+                                            Saat Ini
+                                        </th>
+                                        <th rowspan="2" class="text-right text-primary align-middle">
+                                            Discarded
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-primary text-right">
+                                            Dirawat
+                                        </th>
+                                        <th class="text-primary text-right">
+                                            Isolasi
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $suspek_total = 0;
+                                    $suspek_dirawat = 0;
+                                    $suspek_isolasi = 0;
                                     $suspek_discard = 0;
                                     ?>
                                     <?php foreach ($kelurahan as $key) : ?>
                                         <?php
-                                        $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
-                                        $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
-                                        $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
-                                        $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
-                                        $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
+                                        $suspek_total = $suspek_total + $key['suspek_total'];
                                         $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'];
-                                        $probable_dirawat = $probable_dirawat + $key['probable_dirawat'];
+                                        $suspek_isolasi = $suspek_isolasi + $key['suspek_isolasi'];
                                         $suspek_discard = $suspek_discard + $key['suspek_discard'];
                                         ?>
                                         <tr>
                                             <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
-                                            <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
-                                            <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
-                                            <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
-                                            <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
-                                            <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
+                                            <td class="text-right"><?= $key['suspek_total']; ?></td>
                                             <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
-                                            <td class="text-right"><?= $key['probable_dirawat']; ?></td>
+                                            <td class="text-right"><?= $key['suspek_isolasi']; ?></td>
                                             <td class="text-right"><?= $key['suspek_discard']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
+
                                     <tr class="bg-primary">
                                         <td class="text-left">JUMLAH</td>
-                                        <td class="text-right"><?= $konfirmasi_total; ?></td>
-                                        <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
-                                        <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
-                                        <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
-                                        <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
+                                        <td class="text-right"><?= $suspek_total; ?></td>
                                         <td class="text-right"><?= $suspek_dirawat; ?></td>
-                                        <td class="text-right"><?= $probable_dirawat; ?></td>
+                                        <td class="text-right"><?= $suspek_isolasi; ?></td>
                                         <td class="text-right"><?= $suspek_discard; ?></td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center mr-lg-2 mr-sm-2 ml-lg-2 ml-sm-2">
-                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3 mr-3 ml-3">
-
-                        <div class="text-center d-flex justify-content-center">
-                            <span class="text-danger">Scroll untuk melihat data Kelurahan/Desa lain</span>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
