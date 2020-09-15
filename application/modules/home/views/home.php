@@ -309,7 +309,7 @@ function tgl_ind($date)
                         <img src="assets/img/logo_satgas.png" alt="" class="img-responsive" width="100px">
                     </div>
                 </div>
-                <div class="row mb-5">
+                <div class="row mb-1">
                     <div class="col-md-12 text-center" data-aos="fade">
                         <div class="card">
                             <div class="card-body">
@@ -319,6 +319,59 @@ function tgl_ind($date)
 
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 ml-auto mb-5 text-center">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <h2 class="text-uppercase text-center font-secondary">HOTLINE TANGGAP <span class="text-danger">COVID-19</span></h2>
+                                        <h2 class="text-uppercase text-center font-secondary">KABUPATEN JEPARA</h2>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-10 col-md-11 col-sm-11 col-11 py-lg-1">
+                                                <a href="tel:+6281222616119">
+                                                    <button class="btn btn-danger btn-block border-0 mb-1 hotline rounded-8" type="submit">
+                                                        <i class="fa fa-2x fa-phone float-left align-middle mr-2 mt-1" aria-hidden="true"></i>
+                                                        <span class="align-middle float-left">Hotline</span>
+                                                        <span class="align-middle float-right mt-2">+6281 222 616 119</span><br />
+                                                        <small class="sub-text float-left">Layanan Kegawatdaruratan dan Info COVID-19</small>
+                                                    </button>
+                                                </a>
+                                                <a href="https://wa.me/6281222616119">
+                                                    <button class="btn btn-primary text-white btn-block border-0 mb-1 hotline rounded-8" type="submit">
+                                                        <i class="fa fa-2x fa-whatsapp float-left align-middle mr-2 mt-1" aria-hidden="true"></i>
+                                                        <span class="align-middle float-left">Whatsapp</span>
+                                                        <span class="align-middle float-right mt-2">+6281 222 616 119</span><br />
+                                                        <small class="sub-text float-left">Layanan Kegawatdaruratan dan Info COVID-19</small>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <h2 class="text-uppercase text-center font-secondary">CEK KONDISI ANDA !</h2>
+                                        <p class="text-center font-secondary">Deteksi Mandiri Cepat COVID-19 adalah salah satu cara untuk mengetahi apakah Anda memiliki gejala yang memerlukan pemeriksaan dan pengujian lebih lanjut mengenai COVID-19 atau tidak.</p>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-10 col-md-11 col-sm-11 col-11 py-lg-1">
+                                                <a href="https://corona.jatengprov.go.id/screening">
+                                                    <button class="btn btn-danger btn-block border-0 mb-1 hotline rounded-8" type="submit">
+                                                        CEK DISINI
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -808,9 +861,17 @@ function tgl_ind($date)
                                                                     </div>
                                                                 </div>
                                                             <?php } else { ?>
-                                                                <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="fa fa-phone"></i> Daftar
+                                                                    </button>
+                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="tel:<?= $val['telp'][0]['l_telp']; ?>"><?= $val['telp'][0]['v_telp']; ?></a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
                                                                     <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
-                                                                </a>
+                                                                </a> -->
                                                             <?php } ?>
                                                         <?php endif; ?>
                                                     </td>
@@ -988,7 +1049,7 @@ function tgl_ind($date)
                                                         <span class="d-inline d-lg-none d-md-none text-white"><br /></span>
                                                         <span class="badge badge-success font-13"><?= number_format($suspek_discard, 2, ',', '.'); ?> %</span><br>
                                                         <!-- <i class="fa fa-angle-double-up fc-black"></i> <span class="fc-black font-13 number" data-number="<?= $suspek['discard']['baru']; ?>">0</span> -->
-                                                        <h6 class="font-kasus font-14 pt-1">Discard</h6>
+                                                        <h6 class="font-kasus font-14 pt-1">Discarded</h6>
                                                     </div>
                                                 </li>
                                             </ul>

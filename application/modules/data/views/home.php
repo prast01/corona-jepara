@@ -611,9 +611,17 @@ function tgl_ind($date)
                                                                     </div>
                                                                 </div>
                                                             <?php } else { ?>
-                                                                <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-success btn-sm dropdown-toggle rounded-15 text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="fa fa-phone"></i> Daftar
+                                                                    </button>
+                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="tel:<?= $val['telp'][0]['l_telp']; ?>"><?= $val['telp'][0]['v_telp']; ?></a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
                                                                     <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
-                                                                </a>
+                                                                </a> -->
                                                             <?php } ?>
                                                         <?php endif; ?>
                                                     </td>
@@ -638,7 +646,7 @@ function tgl_ind($date)
 
         <!-- KECAMATAN -->
 
-        <div class="site-section section-counter mb-1 py-2">
+        <div class="site-section section-counter mb-2 py-2">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -892,18 +900,18 @@ function tgl_ind($date)
         </div>
 
         <!-- Grafik grafik -->
-        <div class="site-section section-counter mb-3 py-0">
+        <div class="site-section section-counter mb-3 py-3">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold text-center">Grafik Akumulasi dan Harian</h4>
+                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold text-center">Grafik Data Harian</h4>
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="btn btn-outline-danger rounded-10 mx-1 my-1 active" id="pills-harian-sum" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Grafik Akumulasi</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
+                            <!-- <li class="nav-item" role="presentation">
+                                <a class="btn btn-outline-danger rounded-10 mx-1 my-1 active" id="pills-harian-sum" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Grafik Harian</a>
+                            </li> -->
+                            <!-- <li class="nav-item" role="presentation">
                                 <a class="btn btn-outline-danger rounded-10 mx-1 my-1" id="pills-harian" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Grafik Harian</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-harian-sum">
@@ -1014,7 +1022,7 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section section-counter mb-2 pt-0">
+        <div class="site-section section-counter mb-3 py-3">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -1053,7 +1061,7 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <div class="site-section section-counter mb-3 py-0">
+        <div class="site-section section-counter mb-3 py-3">
             <div class="container">
                 <div class="row">
                     <div class="col-12">

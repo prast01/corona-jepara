@@ -79,7 +79,7 @@
 
           chart_harian_covid_sum.setOption({
             title: {
-              text: "Terkonfirmasi\nDirawat + Dirujuk",
+              text: "Terkonfirmasi\nDirawat + Isolasi",
               textAlign: "left",
               itemGap: 2,
             },
@@ -280,7 +280,7 @@
 
           chart_harian_suspek_sum.setOption({
             title: {
-              text: "Suspek",
+              text: "Suspek\nDirawat + Isolasi",
               textAlign: "left",
               itemGap: 2,
             },
@@ -347,7 +347,7 @@
 
           chart_harian_probable_sum.setOption({
             title: {
-              text: "Probable",
+              text: "Probable\nDirawat + Isolasi",
               textAlign: "left",
               itemGap: 2,
             },
@@ -414,7 +414,7 @@
 
           chart_harian_covid.setOption({
             title: {
-              text: "Terkonfirmasi\nDirawat + Dirujuk",
+              text: "Terkonfirmasi\nDirawat + Isolasi",
               textAlign: "left",
               itemGap: 2,
             },
