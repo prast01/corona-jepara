@@ -584,7 +584,7 @@ function tgl_ind($date)
                                         ?>
                                         <?php $jml = count($val['telp']); ?>
                                         <tr>
-                                            <td><?= $val['nama_faskes']; ?></td>
+                                            <td class="text-left"><?= $val['nama_faskes']; ?></td>
                                             <td class="text-center"><?= $val['suspek']; ?></td>
                                             <td class="text-center"><?= $val['probable']; ?></td>
                                             <td class="text-center"><?= $val['konfirmasi']; ?></td>

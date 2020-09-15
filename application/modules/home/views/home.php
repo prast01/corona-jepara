@@ -325,7 +325,7 @@ function tgl_ind($date)
         </div>
 
         <!-- DEFINISI -->
-        <div id="definisi" class="site-section first-section my-2 py-2">
+        <div id="definisi" class="site-section first-section mt-1 py-3">
             <div class="container pt-5">
                 <div class="row mb-5">
                     <div class="col-md-12 text-center" data-aos="fade">
@@ -747,7 +747,7 @@ function tgl_ind($date)
 
         <!-- DATA -->
         <!-- RUMAH SAKIT -->
-        <div id="rs_rujukan" class="site-section section-counter mb-2 py-2">
+        <div id="rs_rujukan" class="site-section section-counter mt-1 py-3">
             <div class="container-fluid pt-5">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -781,7 +781,7 @@ function tgl_ind($date)
                                         ?>
                                         <?php $jml = count($val['telp']); ?>
                                         <tr>
-                                            <td><?= $val['nama_faskes']; ?></td>
+                                            <td class="text-left"><?= $val['nama_faskes']; ?></td>
                                             <td class="text-center"><?= $val['suspek']; ?></td>
                                             <td class="text-center"><?= $val['probable']; ?></td>
                                             <td class="text-center"><?= $val['konfirmasi']; ?></td>
@@ -835,7 +835,7 @@ function tgl_ind($date)
                 <div class="row">
                     <div class="col-lg-12 ml-auto mb-4 text-center">
                         <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">COVID-19</span> di Jepara</h4>
-                        <p class="mb-0">
+                        <p class="mb-2">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -5px;">
                                 <path d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM16.5 22.5H13.5V13.5H16.5V22.5ZM16.5 10.5H13.5V7.5H16.5V10.5Z" fill="#FFA51F" />
                             </svg>
@@ -843,6 +843,13 @@ function tgl_ind($date)
                             <br>
                             <b>Sumber : </b>Dinas Kesehatan Kabupaten Jepara
                         </p>
+                        <div class="row">
+                            <div class="col-12 text-left">
+                                <p>
+                                    Catatan : <span class="text-danger">Klik</span> salah satu kotak dibawah untuk <span class="text-danger">melihat detail</span> persebaran per Kecamatan.
+                                </p>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-4 col-12 mb-3" onclick="bukas('data-1')" style="cursor: pointer;">
                                 <div class="card shadow card-extend">
@@ -982,13 +989,6 @@ function tgl_ind($date)
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-left">
-                                <p>
-                                    Catatan : <span class="text-danger">Klik</span> salah satu kotak diatas untuk melihat detail persebaran per Kecamatan.
-                                </p>
                             </div>
                         </div>
                         <div class="row baris-data shadow">
