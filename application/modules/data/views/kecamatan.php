@@ -291,21 +291,21 @@ function tgl_ind($date)
                                             ?>
                                             <tr>
                                                 <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
-                                                <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
-                                                <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
-                                                <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
-                                                <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
-                                                <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
+                                                <td class="text-right"><?= number_format($key['konfirmasi_total'], 0, ',', '.'); ?></td>
+                                                <td class="text-right"><?= number_format($key['konfirmasi_dirawat'], 0, ',', '.'); ?></td>
+                                                <td class="text-right"><?= number_format($key['konfirmasi_isolasi'], 0, ',', '.'); ?></td>
+                                                <td class="text-right"><?= number_format($key['konfirmasi_sembuh'], 0, ',', '.'); ?></td>
+                                                <td class="text-right"><?= number_format($key['konfirmasi_meninggal'], 0, ',', '.'); ?></td>
                                             </tr>
                                         <?php endforeach; ?>
 
                                         <tr class="bg-primary">
                                             <td class="text-left">JUMLAH</td>
-                                            <td class="text-right"><?= $konfirmasi_total; ?></td>
-                                            <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
-                                            <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
-                                            <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
-                                            <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
+                                            <td class="text-right"><?= number_format($konfirmasi_total, 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($konfirmasi_dirawat, 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($konfirmasi_isolasi, 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($konfirmasi_sembuh, 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($konfirmasi_meninggal, 0, ',', '.'); ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -362,21 +362,21 @@ function tgl_ind($date)
                                         ?>
                                         <tr>
                                             <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
-                                            <td class="text-right"><?= $key['probable_total']; ?></td>
-                                            <td class="text-right"><?= $key['probable_dirawat']; ?></td>
-                                            <td class="text-right"><?= $key['probable_isolasi']; ?></td>
-                                            <td class="text-right"><?= $key['probable_sembuh']; ?></td>
-                                            <td class="text-right"><?= $key['probable_meninggal']; ?></td>
+                                            <td class="text-right"><?= number_format($key['probable_total'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['probable_dirawat'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['probable_isolasi'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['probable_sembuh'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['probable_meninggal'], 0, ',', '.'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
 
                                     <tr class="bg-primary">
                                         <td class="text-left">JUMLAH</td>
-                                        <td class="text-right"><?= $probable_total; ?></td>
-                                        <td class="text-right"><?= $probable_dirawat; ?></td>
-                                        <td class="text-right"><?= $probable_isolasi; ?></td>
-                                        <td class="text-right"><?= $probable_sembuh; ?></td>
-                                        <td class="text-right"><?= $probable_meninggal; ?></td>
+                                        <td class="text-right"><?= number_format($probable_total, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($probable_dirawat, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($probable_isolasi, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($probable_sembuh, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($probable_meninggal, 0, ',', '.'); ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -427,19 +427,19 @@ function tgl_ind($date)
                                         ?>
                                         <tr>
                                             <td class="text-left"><?= $key['nama_kelurahan']; ?></td>
-                                            <td class="text-right"><?= $key['suspek_total']; ?></td>
-                                            <td class="text-right"><?= $key['suspek_dirawat']; ?></td>
-                                            <td class="text-right"><?= $key['suspek_isolasi']; ?></td>
-                                            <td class="text-right"><?= $key['suspek_discard']; ?></td>
+                                            <td class="text-right"><?= number_format($key['suspek_total'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['suspek_dirawat'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['suspek_isolasi'], 0, ',', '.'); ?></td>
+                                            <td class="text-right"><?= number_format($key['suspek_discard'], 0, ',', '.'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
 
                                     <tr class="bg-primary">
                                         <td class="text-left">JUMLAH</td>
-                                        <td class="text-right"><?= $suspek_total; ?></td>
-                                        <td class="text-right"><?= $suspek_dirawat; ?></td>
-                                        <td class="text-right"><?= $suspek_isolasi; ?></td>
-                                        <td class="text-right"><?= $suspek_discard; ?></td>
+                                        <td class="text-right"><?= number_format($suspek_total, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($suspek_dirawat, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($suspek_isolasi, 0, ',', '.'); ?></td>
+                                        <td class="text-right"><?= number_format($suspek_discard, 0, ',', '.'); ?></td>
                                     </tr>
                                 </tbody>
                             </table>
