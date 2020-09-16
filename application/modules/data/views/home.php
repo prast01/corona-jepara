@@ -753,7 +753,7 @@ function tgl_ind($date)
                                             <tr>
                                                 <th rowspan="3" class="text-left align-middle">Kecamatan</th>
                                                 <th colspan="5" class="text-warning text-center">
-                                                    Probale
+                                                    Probable
                                                 </th>
                                                 <th rowspan="3" class="text-left align-middle">Detail</th>
                                             </tr>

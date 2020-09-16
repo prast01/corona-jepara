@@ -698,7 +698,7 @@ function tgl_ind($date)
 
                                                 <div id="collapseEighteen" class="collapse" aria-labelledby="headingEighteen" data-parent="#accordionExample3">
                                                     <div class="card-body text-justify">
-                                                        <p class="mb-0">Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19 dan orang tersebut sedang menjalan karantina.</p>
+                                                        <p class="mb-0">Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19 dan orang tersebut sedang menjalani karantina mandiri.</p>
                                                         <p class="mb-0">Riwayat kontak yang dimaksud antara lain :</p>
                                                         <ol class="mb-0" style="list-style: circle;">
                                                             <li>Kontak tatap muka/berdekatan dengan kasus probable atau kasus konfirmasi dalam radius 1 meter dan dalam jangka waktu 15 menit atau lebih;</li>
@@ -1150,7 +1150,7 @@ function tgl_ind($date)
                                             <tr>
                                                 <th rowspan="3" class="text-left align-middle">Kecamatan</th>
                                                 <th colspan="5" class="text-warning text-center">
-                                                    Probale
+                                                    Probable
                                                 </th>
                                                 <th rowspan="3" class="text-left align-middle">Detail</th>
                                             </tr>
