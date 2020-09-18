@@ -290,7 +290,7 @@ function tgl_ind($date)
             <div class="container gradient-banner">
                 <div class="row mb-2">
                     <div class="col-12 text-center">
-                        <img src="assets/img/logo_satgas.png" alt="" class="img-responsive" width="100px">
+                        <img src="assets/img/logo_satgas.png" alt="" class="img-responsive" width="150px">
                     </div>
                 </div>
                 <div class="row mb-2">
