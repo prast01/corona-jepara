@@ -68,3 +68,5 @@ echo grab3($url);
             </div>
         </div>
     </div>
+    <!-- <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
+<div id="gpr-kominfo-widget-container"></div> -->
