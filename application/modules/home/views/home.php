@@ -249,6 +249,9 @@ function tgl_ind($date)
                         <a class="nav-link nav-link2 text-uppercase" href="#definisi">Definisi</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link nav-link2 text-uppercase" href="#berita">berita</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#rs_rujukan">RS Rujukan</a>
                     </li>
                     <li class="nav-item">
@@ -733,6 +736,24 @@ function tgl_ind($date)
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- berita -->
+        <div id="berita" class="site-section first-section mt-1 py-3">
+            <div class="container pt-5">
+                <div class="row mb-5">
+                    <div class="col-md-12 text-center" data-aos="fade">
+                        <!-- <span class="caption d-block mb-2 font-secondary font-weight-bold">Berita Jepara</span> -->
+                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Berita Jepara</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <iframe src="<?= site_url('../home/grabbing'); ?>" width="100%" height="600" style="border:none;">
+                        </iframe>
                     </div>
                 </div>
             </div>

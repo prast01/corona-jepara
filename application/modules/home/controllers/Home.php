@@ -27,6 +27,11 @@ class Home extends MY_Controller
   {
     $this->load->view('maintenis');
   }
+
+  public function grabbing()
+  {
+    $this->load->view('grab');
+  }
 }
 
 /* End of file Controllername.php */
