@@ -249,9 +249,9 @@ function tgl_ind($date)
                     <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#definisi">Definisi</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#berita">berita</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#rs_rujukan">RS Rujukan</a>
                     </li>
@@ -747,8 +747,7 @@ function tgl_ind($date)
             <div class="container pt-5">
                 <div class="row mb-2">
                     <div class="col-md-12 text-center" data-aos="fade">
-                        <!-- <span class="caption d-block mb-2 font-secondary font-weight-bold">Berita Jepara</span> -->
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Berita Jepara</h2>
+                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Berita <span class="text-danger">Jepara</span></h2>
                     </div>
                 </div>
                 <div class="row">
