@@ -33,6 +33,15 @@ class M_home extends CI_Model
 
         return $data;
     }
+
+    public function getScrap()
+    {
+        $url = "http://dinkes.mi-kes.net/corona/home/scrap";
+        $result = file_get_contents($url);
+        $data = json_decode($result, true);
+
+        return $data;
+    }
 }
 
 /* End of file M_home.php */

@@ -19,6 +19,7 @@ class Home extends MY_Controller
     $data = $model->getApi();
     $data['kecamatan'] = $model->getApi2();
     $data['faskes'] = $model->getFaskes();
+    $data['scrap'] = $model->getScrap();
     $this->load->view('home', $data);
     // var_dump($data);
   }
@@ -31,6 +32,11 @@ class Home extends MY_Controller
   public function grabbing()
   {
     $this->load->view('grab');
+  }
+
+  public function scrap()
+  {
+    $this->load->view('scrap');
   }
 }
 

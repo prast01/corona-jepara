@@ -223,6 +223,32 @@ function tgl_ind($date)
         .tutup {
             display: none;
         }
+
+        .card-footer:last-child {
+            border-radius: 0 !important;
+        }
+
+        .card-footer {
+            padding: 0 !important;
+            background-color: unset !important;
+            border-top: unset !important;
+        }
+
+        .img-title {
+            color: white;
+            margin: 0;
+        }
+
+        /* .text-center {
+            color: #fff;
+        } */
+
+        .card-img-overlay {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -249,14 +275,14 @@ function tgl_ind($date)
                     <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#definisi">Definisi</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link nav-link2 text-uppercase" href="#berita">berita</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#rs_rujukan">RS Rujukan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link2 text-uppercase" href="#data">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link2 text-uppercase" href="#berita">berita</a>
                     </li>
                 </ul>
             </div>
@@ -276,37 +302,6 @@ function tgl_ind($date)
             <div class="site-mobile-menu-body"></div>
         </div> <!-- .site-mobile-menu -->
 
-
-        <!-- <div class="site-navbar-wrap js-site-navbar bg-white fixed-top">
-
-            <div class="container">
-                <div class="site-navbar gradient-banner">
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <div class="row mt-auto">
-                                <div class="col-1">
-                                    <img src="<?= site_url("../assets/img/jepara.png"); ?>" alt="LOGO" width="30px">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <nav class="site-navigation text-right" role="navigation">
-                                <div class="container">
-                                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-                                    <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                        <li class="active"><a href="<?= site_url("../"); ?>">Dashboard</a></li>
-                                        <li><a href="#definisi">Data</a></li>
-                                        <li><a href="<?= site_url("../data"); ?>">Data</a></li>
-                                        <li><a href="<?= site_url("../kontak"); ?>">Kontak</a></li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
         <div class="slant-1"></div>
 
@@ -742,91 +737,6 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <!-- berita -->
-        <div id="berita" class="site-section first-section mt-1 py-3">
-            <div class="container pt-5">
-                <div class="row mb-2">
-                    <div class="col-md-12 text-center" data-aos="fade">
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Berita <span class="text-danger">Jepara</span></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <iframe src="<?= site_url('../home/grabbing'); ?>" width="100%" height="600" style="border:none;"></iframe>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 text-center">
-                        <a href="https://jepara.go.id/category/berita-umum/" class="btn btn-outline-danger rounded-8 btn-lg">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="site-half">
-            <div class="img-bg-1" style="background-image: url('assets/img/covid.png');" data-aos="fade"></div>
-            <div class="container">
-                <div class="row no-gutters align-items-stretch">
-                    <div class="col-lg-5 ml-lg-auto py-5">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Bagaimana Gejala</span>
-                        <h2 class="site-section-heading text-uppercase font-secondary mb-5">COVID-19</h2>
-                        <p>Orang yang terinfeksi memiliki gejala seperti demam, batuk, dan kesulitan bernafas. Gejala dapat berkembang menjadi pneumonia berat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="site-section first-section my-3 py-3">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-12 text-center" data-aos="fade">
-                        <span class="caption d-block mb-2 font-secondary font-weight-bold">Ayo ! Lindungi Diri Dari</span>
-                        <h2 class="site-section-heading text-uppercase text-center font-secondary">COVID-19</h2>
-                    </div>
-                </div>
-                <div class="row border-responsive">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
-                        <div class="text-center">
-                            <img src="assets/img/pic_batuk.png" alt="" width="120px">
-                            <p>Terapkan etika batuk atau bersin (dengan menutup mulut dan hidung), dan jangan meludah sembarangan</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-center">
-                            <img src="assets/img/hp_bersih.png" alt="" width="120px">
-                            <p>Bersihkan benda yang sering disentuh</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-center">
-                            <img src="assets/img/masker.png" alt="" width="120px">
-                            <p>Gunakan masker jika Anda sakit dan segera periksakan diri ke fasilitas kesehatan terdekat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row border-responsive mt-3">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
-                        <div class="text-center">
-                            <img src="assets/img/cuci_tangan.png" alt="" width="120px">
-                            <p>Cuci tangan dengan sabun</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-center">
-                            <img src="assets/img/ngucek.png" alt="" width="120px">
-                            <p>Hindari menyentuh mata, hidung, dan mulut dengan tangan yang belum dicuci</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-center">
-                            <img src="assets/img/olahraga.png" alt="" width="120px">
-                            <p>Konsumsi makanan bergizi dan berolahraga</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
         <!-- DATA -->
         <!-- RUMAH SAKIT -->
         <div id="rs_rujukan" class="site-section section-counter mt-1 py-3">
@@ -898,9 +808,6 @@ function tgl_ind($date)
                                                                         <a class="dropdown-item" href="tel:<?= $val['telp'][0]['l_telp']; ?>"><?= $val['telp'][0]['v_telp']; ?></a>
                                                                     </div>
                                                                 </div>
-                                                                <!-- <a href="tel:<?= $val['telp'][0]['l_telp']; ?>" class="btn btn-success btn-sm rounded-15 text-white">
-                                                                    <i class="fa fa-phone"></i> <?= $val['telp'][0]['v_telp']; ?>
-                                                                </a> -->
                                                             <?php } ?>
                                                         <?php endif; ?>
                                                     </td>
@@ -1088,237 +995,6 @@ function tgl_ind($date)
                             </div>
                         </div>
                         <div class="row baris-data shadow">
-                            <!-- <div class="col-12 datas buka" id="data-1">
-                                <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-danger">Terkonfirmasi</span> per Kecamatan</h4>
-                                <div class="table-responsive table-kabkot px-2">
-                                    <table class="table table-hovered table-bordered table-sm">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="3" class="text-left align-middle">Kecamatan</th>
-                                                <th colspan="5" class="text-danger text-center">
-                                                    Terkonfirmasi
-                                                </th>
-                                                <th rowspan="3" class="text-left align-middle">Detail</th>
-                                            </tr>
-                                            <tr>
-                                                <th rowspan="2" class="text-right align-middle" style="color: #00a6ff;">
-                                                    Total
-                                                </th>
-                                                <th colspan="2" class="text-danger text-center">
-                                                    Saat Ini
-                                                </th>
-                                                <th rowspan="2" class="text-primary text-right align-middle">
-                                                    Sembuh
-                                                </th>
-                                                <th rowspan="2" class="text-right align-middle">
-                                                    Meninggal
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-danger text-right">
-                                                    Dirawat
-                                                </th>
-                                                <th class="text-danger text-right">
-                                                    Isolasi
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $konfirmasi_total = 0;
-                                            $konfirmasi_dirawat = 0;
-                                            $konfirmasi_isolasi = 0;
-                                            $konfirmasi_sembuh = 0;
-                                            $konfirmasi_meninggal = 0;
-                                            $suspek_dirawat = 0;
-                                            $probable_dirawat = 0;
-                                            $suspek_discard = 0;
-                                            ?>
-                                            <?php foreach ($kecamatan as $key) : ?>
-                                                <?php
-                                                $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
-                                                $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
-                                                $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
-                                                $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
-                                                $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
-                                                $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'] + $key['suspek_isolasi'];
-                                                $probable_dirawat = $probable_dirawat + $key['probable_dirawat'] + $key['probable_isolasi'];
-                                                $suspek_discard = $suspek_discard + $key['suspek_discard'];
-                                                ?>
-                                                <tr>
-                                                    <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
-                                                    <td class="text-right"><?= number_format($key['konfirmasi_total'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['konfirmasi_dirawat'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['konfirmasi_isolasi'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['konfirmasi_sembuh'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['konfirmasi_meninggal'], 0, ',', '.'); ?></td>
-                                                    <td>
-                                                        <a href="<?= site_url("../data/kecamatan/" . $key['kode'] . "/konfirmasi"); ?>">Lihat</a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-
-                                            <tr class="bg-primary">
-                                                <td class="text-left">JUMLAH</td>
-                                                <td class="text-right"><?= number_format($konfirmasi_total, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($konfirmasi_dirawat, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($konfirmasi_isolasi, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($konfirmasi_sembuh, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($konfirmasi_meninggal, 0, ',', '.'); ?></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-12 datas tutup" id="data-2">
-                                <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-warning">Probable</span> per Kecamatan</h4>
-                                <div class="table-responsive table-kabkot px-2">
-                                    <table class="table table-hovered table-bordered table-sm">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="3" class="text-left align-middle">Kecamatan</th>
-                                                <th colspan="5" class="text-warning text-center">
-                                                    Probable
-                                                </th>
-                                                <th rowspan="3" class="text-left align-middle">Detail</th>
-                                            </tr>
-                                            <tr>
-                                                <th rowspan="2" class="text-right align-middle" style="color: #00a6ff;">
-                                                    Total
-                                                </th>
-                                                <th colspan="2" class="text-warning text-center">
-                                                    Saat Ini
-                                                </th>
-                                                <th rowspan="2" class="text-primary text-right align-middle">
-                                                    Sembuh
-                                                </th>
-                                                <th rowspan="2" class="text-right align-middle">
-                                                    Meninggal
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-warning text-right">
-                                                    Dirawat
-                                                </th>
-                                                <th class="text-warning text-right">
-                                                    Isolasi
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $probable_total = 0;
-                                            $probable_dirawat = 0;
-                                            $probable_isolasi = 0;
-                                            $probable_sembuh = 0;
-                                            $probable_meninggal = 0;
-                                            ?>
-                                            <?php foreach ($kecamatan as $key) : ?>
-                                                <?php
-                                                $probable_total = $probable_total + $key['probable_total'];
-                                                $probable_dirawat = $probable_dirawat + $key['probable_dirawat'];
-                                                $probable_isolasi = $probable_isolasi + $key['probable_isolasi'];
-                                                $probable_sembuh = $probable_sembuh + $key['probable_sembuh'];
-                                                $probable_meninggal = $probable_meninggal + $key['probable_meninggal'];
-                                                ?>
-                                                <tr>
-                                                    <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
-                                                    <td class="text-right"><?= number_format($key['probable_total'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['probable_dirawat'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['probable_isolasi'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['probable_sembuh'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['probable_meninggal'], 0, ',', '.'); ?></td>
-                                                    <td>
-                                                        <a href="<?= site_url("../data/kecamatan/" . $key['kode'] . "/probable"); ?>">Lihat</a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-
-                                            <tr class="bg-primary">
-                                                <td class="text-left">JUMLAH</td>
-                                                <td class="text-right"><?= number_format($probable_total, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($probable_dirawat, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($probable_isolasi, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($probable_sembuh, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($probable_meninggal, 0, ',', '.'); ?></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-12 datas tutup" id="data-3">
-                                <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus <span class="text-primary">Suspek</span> per Kecamatan</h4>
-                                <div class="table-responsive table-kabkot px-2">
-                                    <table class="table table-hovered table-bordered table-sm">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="3" class="text-left align-middle">Kecamatan</th>
-                                                <th colspan="4" class="text-primary text-center">
-                                                    Suspek
-                                                </th>
-                                                <th rowspan="3" class="text-left align-middle">Detail</th>
-                                            </tr>
-                                            <tr>
-                                                <th rowspan="2" class="text-right align-middle" style="color: #00a6ff;">
-                                                    Total
-                                                </th>
-                                                <th colspan="2" class="text-primary text-center">
-                                                    Saat Ini
-                                                </th>
-                                                <th rowspan="2" class="text-right text-primary align-middle">
-                                                    Discarded
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-primary text-right">
-                                                    Dirawat
-                                                </th>
-                                                <th class="text-primary text-right">
-                                                    Isolasi
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $suspek_total = 0;
-                                            $suspek_dirawat = 0;
-                                            $suspek_isolasi = 0;
-                                            $suspek_discard = 0;
-                                            ?>
-                                            <?php foreach ($kecamatan as $key) : ?>
-                                                <?php
-                                                $suspek_total = $suspek_total + $key['suspek_total'];
-                                                $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'];
-                                                $suspek_isolasi = $suspek_isolasi + $key['suspek_isolasi'];
-                                                $suspek_discard = $suspek_discard + $key['suspek_discard'];
-                                                ?>
-                                                <tr>
-                                                    <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
-                                                    <td class="text-right"><?= number_format($key['suspek_total'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['suspek_dirawat'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['suspek_isolasi'], 0, ',', '.'); ?></td>
-                                                    <td class="text-right"><?= number_format($key['suspek_discard'], 0, ',', '.'); ?></td>
-                                                    <td>
-                                                        <a href="<?= site_url("../data/kecamatan/" . $key['kode'] . "/suspek"); ?>">Lihat</a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-
-                                            <tr class="bg-primary">
-                                                <td class="text-left">JUMLAH</td>
-                                                <td class="text-right"><?= number_format($suspek_total, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($suspek_dirawat, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($suspek_isolasi, 0, ',', '.'); ?></td>
-                                                <td class="text-right"><?= number_format($suspek_discard, 0, ',', '.'); ?></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> -->
-
                             <div class="col-12">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -1574,117 +1250,69 @@ function tgl_ind($date)
             </div>
         </div>
 
-        <!-- <div class="site-section section-counter mb-1 py-2">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 ml-auto mb-5 text-center">
-                        <h4 class="mb-3 font-secondary text-uppercase font-weight-bold">Sebaran Kasus per Kecamatan</h4>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                                <div class="rounded-10 shadow bg-white">
-                                    <div class="row">
-                                        <div class="col-md-12 mx-1 my-1">
-                                            <div class="table-responsive table-kabkot px-2">
-                                                <table class="table table-hovered table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th rowspan="2" class="text-left">Kecamatan</th>
-                                                            <th colspan="5" class="text-danger text-center">
-                                                                Terkonfirmasi
-                                                            </th>
-                                                            <th rowspan="2" class="text-right" style="color: #ae00ff;">
-                                                                Suspek
-                                                            </th>
-                                                            <th rowspan="2" class="text-right" style="color: #ffaa00;">
-                                                                Probable
-                                                            </th>
-                                                            <th rowspan="2" class="text-right">
-                                                                Suspek Discarded
-                                                            </th>
-                                                            <th rowspan="2" class="text-left">Detail</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="text-right" style="color: #00a6ff;">
-                                                                Total
-                                                            </th>
-                                                            <th class="text-danger text-right">
-                                                                Dirawat
-                                                            </th>
-                                                            <th class="text-danger text-right">
-                                                                Isolasi
-                                                            </th>
-                                                            <th class="text-primary text-right">
-                                                                Sembuh
-                                                            </th>
-                                                            <th class="text-right">
-                                                                Meninggal
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $konfirmasi_total = 0;
-                                                        $konfirmasi_dirawat = 0;
-                                                        $konfirmasi_isolasi = 0;
-                                                        $konfirmasi_sembuh = 0;
-                                                        $konfirmasi_meninggal = 0;
-                                                        $suspek_dirawat = 0;
-                                                        $probable_dirawat = 0;
-                                                        $suspek_discard = 0;
-                                                        ?>
-                                                        <?php foreach ($kecamatan as $key) : ?>
-                                                            <?php
-                                                            $konfirmasi_total = $konfirmasi_total + $key['konfirmasi_total'];
-                                                            $konfirmasi_dirawat = $konfirmasi_dirawat + $key['konfirmasi_dirawat'];
-                                                            $konfirmasi_isolasi = $konfirmasi_isolasi + $key['konfirmasi_isolasi'];
-                                                            $konfirmasi_sembuh = $konfirmasi_sembuh + $key['konfirmasi_sembuh'];
-                                                            $konfirmasi_meninggal = $konfirmasi_meninggal + $key['konfirmasi_meninggal'];
-                                                            $suspek_dirawat = $suspek_dirawat + $key['suspek_dirawat'] + $key['suspek_isolasi'];
-                                                            $probable_dirawat = $probable_dirawat + $key['probable_dirawat'] + $key['probable_isolasi'];
-                                                            $suspek_discard = $suspek_discard + $key['suspek_discard'];
-                                                            ?>
-                                                            <tr>
-                                                                <td class="text-left"><?= $key['nama_kecamatan']; ?></td>
-                                                                <td class="text-right"><?= $key['konfirmasi_total']; ?></td>
-                                                                <td class="text-right"><?= $key['konfirmasi_dirawat']; ?></td>
-                                                                <td class="text-right"><?= $key['konfirmasi_isolasi']; ?></td>
-                                                                <td class="text-right"><?= $key['konfirmasi_sembuh']; ?></td>
-                                                                <td class="text-right"><?= $key['konfirmasi_meninggal']; ?></td>
-                                                                <td class="text-right"><?= $key['suspek_dirawat'] + $key['suspek_isolasi']; ?></td>
-                                                                <td class="text-right"><?= $key['probable_dirawat'] + $key['probable_isolasi']; ?></td>
-                                                                <td class="text-right"><?= $key['suspek_discard']; ?></td>
-                                                                <td>
-                                                                    <a href="<?= site_url("../data/kecamatan/" . $key['kode']); ?>">Lihat</a>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-
-                                                        <tr class="bg-primary">
-                                                            <td class="text-left">JUMLAH</td>
-                                                            <td class="text-right"><?= $konfirmasi_total; ?></td>
-                                                            <td class="text-right"><?= $konfirmasi_dirawat; ?></td>
-                                                            <td class="text-right"><?= $konfirmasi_isolasi; ?></td>
-                                                            <td class="text-right"><?= $konfirmasi_sembuh; ?></td>
-                                                            <td class="text-right"><?= $konfirmasi_meninggal; ?></td>
-                                                            <td class="text-right"><?= $suspek_dirawat; ?></td>
-                                                            <td class="text-right"><?= $probable_dirawat; ?></td>
-                                                            <td class="text-right"><?= $suspek_discard; ?></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- berita -->
+        <div id="berita" class="site-section first-section mt-1 py-3 mb-5">
+            <div class="container pt-5">
+                <div class="row mb-2">
+                    <div class="col-md-12 text-center" data-aos="fade">
+                        <h2 class="site-section-heading text-uppercase text-center font-secondary">Berita <span class="text-danger">Jepara</span></h2>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mb-4">
+                            <?php foreach ($scrap['atas'] as $key => $val) :
+                            ?>
+                                <div class="col-lg-3 col-6">
+                                    <a href="<?= $val['url']; ?>">
+                                        <div class="card text-center">
+                                            <img src="<?= $val['img']; ?>" class="card-img-top" alt="..." width="100px">
+                                            <div class="card-img-overlay">
+                                                <h5 class="card-title"></h5>
+                                                <div class="card-footer text-left">
+                                                    <h5 class="img-title">
+                                                        <?= $val['judul']; ?>
+                                                    </h5>
+                                                    <p class="img-title">
+                                                        <?= $val['jam']; ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endforeach;
+                            ?>
+                        </div>
+                        <?php foreach ($scrap['bawah'] as $key => $val) :
+                        ?>
+                            <div class="row px-5">
+                                <div class="col-lg-3 col-12 text-center">
+                                    <a href="<?= $val['url']; ?>">
+                                        <img src="<?= $val['img']; ?>" alt="" class="rounded" width="150px">
+                                    </a>
+                                </div>
+                                <div class="col-lg-9 col-12 text-justify">
+                                    <h4 class="text-uppercase mb-0">
+                                        <a href="<?= $val['url']; ?>" class="text-reset"><?= $val['judul']; ?></a>
+                                    </h4>
+                                    <small class="text-muted mb-0"><?= $val['jam']; ?></small>
+                                    <p class="text-muted mb-0"><?= $val['konten']; ?></p>
+                                </div>
+                            </div>
+                            <hr>
 
+                        <?php endforeach;
+                        ?>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <a href="https://jepara.go.id/category/covid-19/" class="btn btn-outline-danger rounded-8 btn-lg">Lihat Berita Lainnya</a>
+                    </div>
+                </div>
             </div>
-        </div> -->
+        </div>
 
 
         <footer class="site-footer bg-dark">
