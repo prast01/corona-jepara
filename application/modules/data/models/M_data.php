@@ -9,7 +9,7 @@ class M_data extends CI_Model
 
     public function getApi()
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_cut_off";
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_cut_off";
         $result = file_get_contents($url);
         $data = json_decode($result, true);
 
@@ -18,7 +18,7 @@ class M_data extends CI_Model
 
     public function getApi2()
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_kecamatan";
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_kecamatan";
         $result = file_get_contents($url);
         $data = json_decode($result, true);
 
@@ -27,7 +27,7 @@ class M_data extends CI_Model
 
     public function getApi3($kode)
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_kelurahan/" . $kode;
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_kelurahan/" . $kode;
         $result = file_get_contents($url);
         $data = json_decode($result, true);
 
@@ -37,7 +37,7 @@ class M_data extends CI_Model
 
     public function getChartHarian()
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_harian";
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_harian";
         $data = file_get_contents($url);
         // $data = json_decode($result, true);
 
@@ -46,7 +46,7 @@ class M_data extends CI_Model
 
     public function getChartGender()
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_gender";
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_gender";
         $data = file_get_contents($url);
         // $data = json_decode($result, true);
 
@@ -55,7 +55,7 @@ class M_data extends CI_Model
 
     public function getChartPenyakit()
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_penyakit";
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_penyakit";
         $data = file_get_contents($url);
         // $data = json_decode($result, true);
 
@@ -65,7 +65,16 @@ class M_data extends CI_Model
 
     public function getFaskes()
     {
-        $url = "http://dinkes.mi-kes.net/laporkan-v2/servicesV2/get_data_faskes";
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_faskes";
+        $result = file_get_contents($url);
+        $data = json_decode($result, true);
+
+        return $data;
+    }
+
+    public function getRisiko()
+    {
+        $url = LOKAL_URL_CORONA . "home/peta_risiko";
         $result = file_get_contents($url);
         $data = json_decode($result, true);
 

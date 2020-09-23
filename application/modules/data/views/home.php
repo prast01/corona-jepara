@@ -310,6 +310,26 @@ function tgl_ind($date)
                         </div>
                     </div>
                 </div>
+                <div class="row mb-2">
+                    <div class="col-12 text-center">
+                        <div class="card" style="background-color: <?= $risiko['warna']; ?>;">
+                            <div class="card-body">
+                                <p class="mb-2 text-white">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -5px;">
+                                        <path d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM16.5 22.5H13.5V13.5H16.5V22.5ZM16.5 10.5H13.5V7.5H16.5V10.5Z" fill="#FFFFFF" />
+                                    </svg>
+                                    <b>Update : </b> <span class='tgl_update'><?= $risiko['tgl_update']; ?></span>
+                                    <br>
+                                    <b>KABUPATEN <?= $risiko['kota']; ?>, PROVINSI <?= $risiko['prov']; ?></b>
+                                    <br>
+                                    <b>ZONA</b>
+                                    <h3 class="text-white"><?= $risiko['hasil']; ?></h3>
+                                    <b class="text-white">Sumber : https://covid19.go.id/peta-risiko</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -20,6 +20,7 @@ class Home extends MY_Controller
     $data['kecamatan'] = $model->getApi2();
     $data['faskes'] = $model->getFaskes();
     $data['scrap'] = $model->getScrap();
+    $data['risiko'] = $model->getRisiko();
     $this->load->view('home', $data);
     // var_dump($data);
   }
@@ -37,6 +38,11 @@ class Home extends MY_Controller
   public function scrap()
   {
     $this->load->view('scrap');
+  }
+
+  public function peta_risiko()
+  {
+    $this->load->view('risiko');
   }
 }
 
