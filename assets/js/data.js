@@ -5,7 +5,7 @@
     base_url.indexOf(1);
     base_url.toLowerCase();
     base_url =
-      window.location.origin === "https://corona.jatengprov.go.id"
+      window.location.origin === "https://corona.jepara.go.id"
         ? ""
         : base_url.split("/")[1] + "/";
     var site_url = window.location.origin + "/" + base_url;
