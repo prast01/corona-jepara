@@ -80,6 +80,15 @@ class M_data extends CI_Model
 
         return $data;
     }
+
+    public function get_kelurahan()
+    {
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_data_kelurahan_all";
+        $data = file_get_contents($url);
+        // $data = json_decode($result, true);
+
+        return $data;
+    }
 }
 
 /* End of file M_data.php */

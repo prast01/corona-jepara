@@ -55,6 +55,14 @@ class Data extends MY_Controller
 
     echo $data;
   }
+
+  public function data_kelurahan()
+  {
+    $model = $this->M_data;
+    $data = $model->get_kelurahan();
+
+    echo $data;
+  }
 }
 
 /* End of file Controllername.php */

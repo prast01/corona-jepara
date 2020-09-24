@@ -47,7 +47,7 @@ function tgl_ind($date)
 
     <link rel="stylesheet" href="<?= site_url("../"); ?>assets/css/style.css">
 
-    <link rel="shortcut icon" href="<?= site_url("../"); ?>assets/img/jepara.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= site_url("../"); ?>assets/img/jepara.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="<?= site_url("../"); ?>assets/js/echarts.min.js"></script>
@@ -574,7 +574,8 @@ function tgl_ind($date)
             <div class="container-fluid pt-5">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h4 class="mb-4 font-secondary text-uppercase font-weight-bold">Rumah Sakit Rujukan <span class="text-danger">COVID-19</span> Jepara</h4>
+                        <h4 class="mb-1 font-secondary text-uppercase font-weight-bold">Rumah Sakit Rujukan <span class="text-danger">COVID-19</span> Jepara</h4>
+                        <h6 class="mb-4 font-secondary text-uppercase font-weight-bold">update terkahir : <?= tgl_ind($faskes['tgl_update']); ?></h6>
                         <div class="card shadow">
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -598,7 +599,7 @@ function tgl_ind($date)
                                             $probable2 = 0;
                                             $konfirmasi2 = 0;
                                             ?>
-                                            <?php foreach ($faskes as $key => $val) : ?>
+                                            <?php foreach ($faskes['data'] as $key => $val) : ?>
                                                 <?php
                                                 $suspek2 = $suspek2 + $val['suspek'];
                                                 $probable2 = $probable2 + $val['probable'];

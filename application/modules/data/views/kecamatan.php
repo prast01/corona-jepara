@@ -47,7 +47,7 @@ function tgl_ind($date)
 
     <link rel="stylesheet" href="<?= site_url("../"); ?>assets/css/style.css">
 
-    <link rel="shortcut icon" href="<?= site_url("../"); ?>assets/img/jepara.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= site_url("../"); ?>assets/img/jepara.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- MY CSS -->
