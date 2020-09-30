@@ -52,6 +52,11 @@ function tgl_ind($date)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="<?= site_url("../"); ?>assets/js/jquery-3.3.1.min.js"></script>
+
+    <!-- LEAFLET -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
     <script>
         $(document).ready(function() {
             // Add smooth scrolling to all links
@@ -249,6 +254,44 @@ function tgl_ind($date)
             flex-direction: column;
             justify-content: flex-end;
             height: 100%;
+        }
+
+        #map {
+            position: relative;
+            border: 1px solid black;
+            border-radius: 8px;
+            height: 600px;
+            /* or as desired */
+            width: 100%;
+        }
+
+        .info-peta {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .info-peta h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+
+        .legend {
+            text-align: left;
+            line-height: 18px;
+            color: #555;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -1016,7 +1059,7 @@ function tgl_ind($date)
                                 </p>
                             </div>
                         </div>
-                        <div class="row baris-data shadow">
+                        <div class="row baris-data shadow py-2">
                             <div class="col-12">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -1263,7 +1306,11 @@ function tgl_ind($date)
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div id="map"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 text-center mt-2">
                         <a href="<?= site_url("../data"); ?>" class="btn btn-outline-danger rounded-8 btn-lg">Lihat Selengkapnya</a>
@@ -1408,6 +1455,7 @@ function tgl_ind($date)
     <script src="<?= site_url("../"); ?>assets/js/aos.js"></script>
 
     <script src="<?= site_url("../"); ?>assets/js/main.js"></script>
+    <script src="<?= site_url("../"); ?>assets/js/peta.js"></script>
 
 </body>
 

@@ -89,6 +89,15 @@ class M_data extends CI_Model
 
         return $data;
     }
+
+    public function get_peta()
+    {
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_peta";
+        $data = file_get_contents($url);
+        // $data = json_decode($result, true);
+
+        return $data;
+    }
 }
 
 /* End of file M_data.php */

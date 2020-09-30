@@ -63,6 +63,14 @@ class Data extends MY_Controller
 
     echo $data;
   }
+
+  public function data_peta()
+  {
+    $model = $this->M_data;
+    $data = $model->get_peta();
+
+    echo $data;
+  }
 }
 
 /* End of file Controllername.php */
