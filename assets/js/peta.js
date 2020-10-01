@@ -17,6 +17,7 @@
       $.ajax({
         type: "GET",
         url: site_url + "data/data_peta",
+        // url: "http://lapor-covid19.mi-kes.net/servicesV2/get_peta",
         dataType: "json",
         success: function (data) {
           var desa = data;
@@ -28,7 +29,7 @@
             {
               maxZoom: 18,
               attribution:
-                'Sumber Data &copy; <a href="http://dkk.sikdkkjepara.net/">Dinkes Kab. Jepara</a>',
+                'Sumber Data &copy; <a href="http://dinkes.jepara.go.id/">Dinkes Kab. Jepara</a>',
               id: "mapbox/light-v9",
               tileSize: 512,
               zoomOffset: -1,
@@ -177,6 +178,7 @@
             onEachFeature: onEachFeature,
           }).addTo(map);
         },
+        timeout: 60000, // 1000 = 1 second
       });
     }
   });
