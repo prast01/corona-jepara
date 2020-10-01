@@ -115,6 +115,32 @@ class M_data extends CI_Model
 
         return $data;
     }
+
+    public function get_peta_by($id_kec, $jenis)
+    {
+        $url = LOKAL_URL_LAPOR . "servicesV2/get_peta_by/" . $id_kec . "/" . $jenis;
+        // $data = file_get_contents($url);
+        // $data = json_decode($result, true);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 20000,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+
+        $data = curl_exec($curl);
+
+        curl_close($curl);
+
+        return $data;
+    }
 }
 
 /* End of file M_data.php */
