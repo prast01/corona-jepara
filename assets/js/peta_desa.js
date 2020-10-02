@@ -227,7 +227,7 @@
             return {
               weight: 2,
               opacity: 1,
-              color: "white",
+              color: "black",
               dashArray: "3",
               fillOpacity: 0.7,
               fillColor: color_case(
@@ -242,7 +242,7 @@
             return {
               weight: 2,
               opacity: 1,
-              color: "white",
+              color: "black",
               dashArray: "3",
               fillOpacity: 0.7,
               fillColor: color_case(
@@ -257,7 +257,7 @@
             return {
               weight: 2,
               opacity: 1,
-              color: "white",
+              color: "black",
               dashArray: "3",
               fillOpacity: 0.7,
               fillColor: color_case(
@@ -275,7 +275,7 @@
               weight: 5,
               color: "#666",
               dashArray: "",
-              fillOpacity: 0.7,
+              fillOpacity: 1,
             });
 
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {

@@ -96,6 +96,11 @@
                 color_case(0, 0, 1) +
                 '"></i> Kasus Suspek <br>'
             );
+            labels.push(
+              '<i style="border-color: black; background:' +
+                color_case(0, 0, 0) +
+                '"></i> Tidak Ada Kasus <br>'
+            );
             // }
 
             div.innerHTML = labels.join("<br>");
@@ -114,7 +119,7 @@
             } else if (suspek > 0) {
               color = "#27AE60";
             } else {
-              color = "#27AE60";
+              color = "#FFFFFF";
             }
 
             return color;
@@ -124,7 +129,7 @@
             return {
               weight: 2,
               opacity: 1,
-              color: "white",
+              color: "black",
               dashArray: "3",
               fillOpacity: 0.7,
               fillColor: color_case(
@@ -142,7 +147,7 @@
               weight: 5,
               color: "#666",
               dashArray: "",
-              fillOpacity: 0.7,
+              fillOpacity: 1,
             });
 
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
