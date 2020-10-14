@@ -64,7 +64,7 @@
           if (jns === 1) {
             info.update = function (props) {
               this._div.innerHTML =
-                "<h4>Jumlah Sebaran Kasus</h4>" +
+                "<h4>Jumlah Sebaran Kasus Terkonfirmasi</h4>" +
                 (props
                   ? "<b>" +
                     props.name +
@@ -84,7 +84,7 @@
           } else if (jns === 2) {
             info.update = function (props) {
               this._div.innerHTML =
-                "<h4>Jumlah Sebaran Kasus</h4>" +
+                "<h4>Jumlah Sebaran Kasus Probable</h4>" +
                 (props
                   ? "<b>" +
                     props.name +
@@ -104,7 +104,7 @@
           } else if (jns === 3) {
             info.update = function (props) {
               this._div.innerHTML =
-                "<h4>Jumlah Sebaran Kasus</h4>" +
+                "<h4>Jumlah Sebaran Kasus Suspek</h4>" +
                 (props
                   ? "<b>" +
                     props.name +
@@ -139,9 +139,11 @@
                   color_case(0, 1, 1) +
                   '"></i> Kasus Sembuh <br>'
               );
-              // labels.push(
-              //   '<i style="background: black"></i> Kasus Meninggal <br>'
-              // );
+              labels.push(
+                '<i style="border-color: black; background:' +
+                  color_case(0, 0, 1) +
+                  '"></i> Tidak Ada Kasus <br>'
+              );
 
               div.innerHTML = labels.join("<br>");
               return div;
@@ -160,9 +162,11 @@
                   color_case(0, 1, 2) +
                   '"></i> Kasus Sembuh <br>'
               );
-              // labels.push(
-              //   '<i style="background: black"></i> Kasus Meninggal <br>'
-              // );
+              labels.push(
+                '<i style="border-color: black; background:' +
+                  color_case(0, 0, 2) +
+                  '"></i> Tidak Ada Kasus <br>'
+              );
 
               div.innerHTML = labels.join("<br>");
               return div;
@@ -181,9 +185,11 @@
                   color_case(0, 1, 3) +
                   '"></i> Kasus Discarded <br>'
               );
-              // labels.push(
-              //   '<i style="background: black"></i> Kasus Meninggal <br>'
-              // );
+              labels.push(
+                '<i style="border-color: black; background:' +
+                  color_case(0, 0, 3) +
+                  '"></i> Tidak Ada Kasus <br>'
+              );
 
               div.innerHTML = labels.join("<br>");
               return div;
@@ -200,7 +206,8 @@
               } else if (sembuh > 0) {
                 color = "#27AE60";
               } else {
-                color = "#27AE60";
+                // color = "#27AE60";
+                color = "#FFFFFF";
               }
             } else if (jenis === 2) {
               if (dirawat > 0) {
@@ -208,15 +215,17 @@
               } else if (sembuh > 0) {
                 color = "#27AE60";
               } else {
-                color = "#27AE60";
+                // color = "#27AE60";
+                color = "#FFFFFF";
               }
             } else if (jenis === 3) {
               if (dirawat > 0) {
-                color = "#34a34b";
+                color = "#1a6e2c";
               } else if (sembuh > 0) {
                 color = "#70ff8d";
               } else {
-                color = "#70ff8d";
+                // color = "#70ff8d";
+                color = "#FFFFFF";
               }
             }
 
@@ -229,7 +238,7 @@
               opacity: 1,
               color: "black",
               dashArray: "3",
-              fillOpacity: 0.7,
+              fillOpacity: 0.3,
               fillColor: color_case(
                 feature.properties.saat_ini,
                 feature.properties.sembuh,
@@ -244,7 +253,7 @@
               opacity: 1,
               color: "black",
               dashArray: "3",
-              fillOpacity: 0.7,
+              fillOpacity: 0.3,
               fillColor: color_case(
                 feature.properties.saat_ini,
                 feature.properties.sembuh,
@@ -259,7 +268,7 @@
               opacity: 1,
               color: "black",
               dashArray: "3",
-              fillOpacity: 0.7,
+              fillOpacity: 0.3,
               fillColor: color_case(
                 feature.properties.saat_ini,
                 feature.properties.discarded,

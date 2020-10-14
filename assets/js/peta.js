@@ -47,24 +47,20 @@
 
           info.update = function (props) {
             this._div.innerHTML =
-              "<h4>Jumlah Kasus Saat Ini</h4>" +
+              "<h4>Sebaran Kasus <span style='color: #f82649'>COVID-19</span> di Jepara</h4>" +
               (props
                 ? "<b>" +
                   props.name +
-                  "</b><br /><span style='color:" +
-                  color_case(1, 0, 0) +
-                  "'>" +
-                  props.konfirmasi +
-                  " Kasus Terkonfirmasi</span><br /><span style='color:" +
-                  color_case(0, 1, 0) +
-                  "'>" +
-                  props.probable +
-                  " Kasus Probable</span><br /><span style='color:" +
-                  color_case(0, 0, 1) +
-                  "'>" +
-                  props.suspek +
-                  " Kasus Suspek</span><br />"
-                : "Arahkan Mouse Ke Peta Desa");
+                  "</b><br /><span style='color: #000000'>" +
+                  props.konfirmasi + " Terkonfirmasi Saat Ini<br />" +
+                  props.konfirmasi_sembuh + " Terkonfirmasi Sembuh<br />" +
+                  props.konfirmasi_meninggal + " Terkonfirmasi Meninggal<br />" +
+                  props.probable + " Probable Saat Ini<br />" +
+                  props.probable_sembuh + " Probable Sembuh<br />" +
+                  props.probable_meninggal + " Probable Meninggal<br />" +
+                  props.suspek + " Suspek Saat Ini<br />" +
+                  props.suspek_discarded + " Suspek Discarded<br /></span>"
+                : "Arahkan Mouse Ke Peta Desa/Kelurahan");
           };
 
           info.addTo(map);
@@ -131,7 +127,7 @@
               opacity: 1,
               color: "black",
               dashArray: "3",
-              fillOpacity: 0.7,
+              fillOpacity: 0.3,
               fillColor: color_case(
                 feature.properties.konfirmasi,
                 feature.properties.probable,
